@@ -1,12 +1,14 @@
 function Word (row, str) {
-    this.directionSet = ['top', 'bottom', 'left', 'right'];
+    this.directionSet = ['Top', 'Bottom', 'Left', 'Right'];
     this.direction = '';
     this.setDirection();
 
-    row.innerHTML = '' +
-        '<div class="rowText">' +
-        str +
-        '</div>';
+    row.innerHTML = ''
+        + '<div class="rowText" data-direction="' + this.direction + '">'
+        + str
+        + '</div>';
+    
+    this.rowText = row.querySelector('.rowText');
 }
 
 Word.prototype = {

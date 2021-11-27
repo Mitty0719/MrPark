@@ -1,3 +1,35 @@
+@keyframes moveTop-ani{
+    from{
+        bottom: 100%;
+    }
+    to{
+        bottom: -50%;
+    }
+}
+@keyframes moveBottom-ani{
+    from{
+        top: 100%;
+    }
+    to{
+        top: -50%;
+    }
+}
+@keyframes moveLeft-ani{
+    from{
+        right: 300%;
+    }
+    to{
+        right: -300%;
+    }
+}
+@keyframes moveRight-ani{
+    from{
+        left: 300%;
+    }
+    to{
+        left: -300%;
+    }
+}
 .rowSpace {
     display: flex;
     width: 100vw;
@@ -12,7 +44,6 @@
     position: absolute;
     font-size: 200px;
     font-weight: 900;
-    transition: 3s linear;
 }
 /* 임시 색깔 클래스 */
 .rowSpace .row:nth-child(1) { background: red; }
@@ -23,3 +54,8 @@
 .rowSpace .row:nth-child(6) { background: navy; }
 .rowSpace .row:nth-child(7) { background: purple; }
 .rowSpace .row:nth-child(8) { background: white; }
+
+.rowText[data-direction='Top'] { animation: moveTop-ani 5s infinite linear; }
+.rowText[data-direction='Bottom'] { animation: moveBottom-ani 5s infinite linear; }
+.rowText[data-direction='Left'] { animation: moveLeft-ani 3s infinite linear; }
+.rowText[data-direction='Right'] { animation: moveRight-ani 3s infinite linear; }

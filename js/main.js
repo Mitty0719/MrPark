@@ -17,8 +17,8 @@
 
     // rows.forEach(setDirection);
     rows.forEach( function (row, index) {
-        if(!row.classList.contains('galleryRow')){
-            new Word(row, rowStr[index]);
+        if (!row.classList.contains('galleryRow')) {
+            let word = new Word(row, rowStr[index]);
         }
-    } )
+    } );
 })()
