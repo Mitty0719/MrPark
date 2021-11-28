@@ -9,6 +9,9 @@ function Word (row, str) {
         + '</div>';
     
     this.rowText = row.querySelector('.rowText');
+
+    this.rowText.style.animationDuration = ((Math.random() * 1000) % 10 + 8) + 's'; // % 범위 + 최소값
+    console.log(this.rowText.style.animationDuration);
 }
 
 Word.prototype = {

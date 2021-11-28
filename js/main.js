@@ -1,7 +1,7 @@
 (function(){
     'use strict'
     const rows = document.querySelectorAll('.row');
-    const rowStr = ['M', 'r', 'P', 'a', 'r', 'k', 'GSP'];
+    const rowStr = ['DancingMachine', 'JukeBox', 'BlueBlood', 'GunMulJu', 'Text', 'Text', 'GSP'];
     // const direction = ['top', 'bottom', 'left', 'right'];
     
     // function setDirection (row, index) {
@@ -18,7 +18,7 @@
     // rows.forEach(setDirection);
     rows.forEach( function (row, index) {
         if (!row.classList.contains('galleryRow')) {
-            let word = new Word(row, rowStr[index]);
+            new Word(row, rowStr[index]);
         }
     } );
 })()
