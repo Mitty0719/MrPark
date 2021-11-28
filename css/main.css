@@ -19,7 +19,7 @@
         right: 50rem;
     }
     to{
-        right: -100rem;
+        right: -150rem;
     }
 }
 @keyframes moveRight-ani{
@@ -27,7 +27,7 @@
         left: 50rem;
     }
     to{
-        left: -100rem;
+        left: -150rem;
     }
 }
 .rowSpace {
@@ -40,20 +40,26 @@
     flex-grow: 1;
     overflow: hidden;
 }
+.rowEven {
+    background: #efefef;
+}
+.rowOdd {
+    background: #e8e8e8;
+}
 .rowText {
     position: absolute;
     font-size: 10vw;
     font-weight: 900;
 }
 /* 임시 색깔 클래스 */
-.rowSpace .row:nth-child(1) { background: red; }
-.rowSpace .row:nth-child(2) { background: orange; }
-.rowSpace .row:nth-child(3) { background: yellow; }
-.rowSpace .row:nth-child(4) { background: green; }
-.rowSpace .row:nth-child(5) { background: blue; }
-.rowSpace .row:nth-child(6) { background: navy; }
-.rowSpace .row:nth-child(7) { background: purple; }
-.rowSpace .row:nth-child(8) { background: white; }
+/* .rowSpace .row:nth-child(1) { background: red; } */
+/* .rowSpace .row:nth-child(2) { background: orange; } */
+/* .rowSpace .row:nth-child(3) { background: yellow; } */
+/* .rowSpace .row:nth-child(4) { background: green; } */
+/* .rowSpace .row:nth-child(5) { background: blue; } */
+/* .rowSpace .row:nth-child(6) { background: navy; } */
+/* .rowSpace .row:nth-child(7) { background: purple; } */
+/* .rowSpace .row:nth-child(8) { background: yellowgreen; } */
 
 .rowText[data-direction='Top'] { 
     animation: moveTop-ani 10s infinite linear;

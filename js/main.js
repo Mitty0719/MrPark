@@ -1,7 +1,7 @@
 (function(){
     'use strict'
     const rows = document.querySelectorAll('.row');
-    const rowStr = ['DancingMachine', 'JukeBox', 'BlueBlood', 'GunMulJu', 'Text', 'Text', 'GSP'];
+    const rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
     // const direction = ['top', 'bottom', 'left', 'right'];
     
     // function setDirection (row, index) {
@@ -18,7 +18,13 @@
     // rows.forEach(setDirection);
     rows.forEach( function (row, index) {
         if (!row.classList.contains('galleryRow')) {
-            new Word(row, rowStr[index]);
+            let rowText = new Word(row, rowStr[index], index);
+            // row 색상 설정
+            if( index % 2 == 0 ) {
+                row.classList.add( 'rowEven' );
+            } else {
+                row.classList.add( 'rowOdd' );
+            }
         }
     } );
 })()
