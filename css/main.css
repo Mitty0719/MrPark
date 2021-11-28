@@ -1,33 +1,33 @@
 @keyframes moveTop-ani{
     from{
-        bottom: 100%;
+        bottom: 100rem;
     }
     to{
-        bottom: -50%;
+        bottom: -100rem;
     }
 }
 @keyframes moveBottom-ani{
     from{
-        top: 100%;
+        top: 100rem;
     }
     to{
-        top: -50%;
+        top: -100rem;
     }
 }
 @keyframes moveLeft-ani{
     from{
-        right: 300%;
+        right: 50rem;
     }
     to{
-        right: -300%;
+        right: -100rem;
     }
 }
 @keyframes moveRight-ani{
     from{
-        left: 300%;
+        left: 50rem;
     }
     to{
-        left: -300%;
+        left: -100rem;
     }
 }
 .rowSpace {
@@ -42,7 +42,7 @@
 }
 .rowText {
     position: absolute;
-    font-size: 200px;
+    font-size: 10vw;
     font-weight: 900;
 }
 /* 임시 색깔 클래스 */
@@ -55,7 +55,17 @@
 .rowSpace .row:nth-child(7) { background: purple; }
 .rowSpace .row:nth-child(8) { background: white; }
 
-.rowText[data-direction='Top'] { animation: moveTop-ani 5s infinite linear; }
-.rowText[data-direction='Bottom'] { animation: moveBottom-ani 5s infinite linear; }
-.rowText[data-direction='Left'] { animation: moveLeft-ani 3s infinite linear; }
-.rowText[data-direction='Right'] { animation: moveRight-ani 3s infinite linear; }
+.rowText[data-direction='Top'] { 
+    animation: moveTop-ani 10s infinite linear;
+    writing-mode: vertical-rl;
+}
+.rowText[data-direction='Bottom'] { 
+    animation: moveBottom-ani 10s infinite linear; 
+    writing-mode: vertical-rl;
+}
+.rowText[data-direction='Left'] {
+    animation: moveLeft-ani 10s infinite linear;
+}
+.rowText[data-direction='Right'] {
+    animation: moveRight-ani 10s infinite linear;
+}
