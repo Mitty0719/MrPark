@@ -1,4 +1,5 @@
 function Word (row, str) {
+    // this.directionSet = ['Left', 'Right'];
     this.directionSet = ['Top', 'Bottom', 'Left', 'Right'];
     this.direction = '';
     this.setDirection();
@@ -15,7 +16,7 @@ function Word (row, str) {
 Word.prototype = {
     constructor : Word,
     setDirection : function () {
-        let directionNum = parseInt(Math.random() * 1000 % 4);
+        let directionNum = parseInt(Math.random() * 1000 % this.directionSet.length);
         this.direction = this.directionSet[directionNum];
     },
     setStyle : function () {

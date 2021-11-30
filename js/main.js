@@ -1,7 +1,10 @@
 (function(){
     'use strict'
     const rows = document.querySelectorAll('.row');
+    const galleryImgBox = document.querySelector('.galleryImgBox');
+
     const rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
+    const imgSrc = [];
     // const direction = ['top', 'bottom', 'left', 'right'];
     
     // function setDirection (row, index) {
@@ -16,6 +19,8 @@
     // };
 
     // rows.forEach(setDirection);
+
+    // row설정
     rows.forEach( function (row, index) {
         if (!row.classList.contains('galleryRow')) {
             let rowText = new Word(row, rowStr[index], index);
@@ -27,4 +32,15 @@
             }
         }
     } );
+
+    // gallery 설정
+    window.addEventListener('click', function (e) {
+        let firstImg = document.querySelector('.galleryImg:first-child');
+        let lastImg = document.querySelector('.galleryImg:last-child');
+
+        console.log(firstImg);
+        console.log(lastImg);
+
+        galleryImgBox.insertBefore(lastImg, firstImg);
+    })
 })()
