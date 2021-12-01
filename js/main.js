@@ -34,13 +34,14 @@
     } );
 
     // gallery 설정
-    window.addEventListener('click', function (e) {
-        let firstImg = document.querySelector('.galleryImg:first-child');
-        let lastImg = document.querySelector('.galleryImg:last-child');
+    // function moveGallery () {
+        // const galleryImgs = document.querySelectorAll('.galleryImg');
+        // galleryImgs.forEach(function( img, index ){
+            // console.log(window.getComputedStyle(img).getPropertyValue('height'));
+            // console.log(index);
+            // img.style.top = ( index * parseInt(window.getComputedStyle(img).getPropertyValue('height')) ) + 'px';
+        // })
 
-        console.log(firstImg);
-        console.log(lastImg);
-
-        galleryImgBox.insertBefore(lastImg, firstImg);
-    })
+        // galleryImgBox.insertBefore(lastImg, firstImg);
+    // };
 })()
