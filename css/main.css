@@ -30,6 +30,25 @@
         left: -150rem;
     }
 }
+
+.logoBox {
+    display: fixed;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 100;
+}
+.logoImg {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.logoBox * {
+    float: left;
+}
+
 .rowSpace {
     display: flex;
     width: 100vw;
@@ -80,10 +99,10 @@
 .rowText[data-direction='Right'] {
     animation: moveRight-ani 10s infinite linear;
 }
+
 .galleryRow {
 
 }
-
 .galleryGround {
     display: flex;
     flex-direction: column;
@@ -96,9 +115,11 @@
     height: 20%;
     transition: 1s;
     cursor: pointer;
+    filter: grayscale(1);
 }
 .galleryCon:hover {
     height: 40%;
+    filter: grayscale(0);
 }
 .galleryImg {
     width: 100%;
