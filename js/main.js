@@ -3,8 +3,8 @@
     const mouseCursor = document.querySelector('.mouseCursor');
     const rows = document.querySelectorAll('.row');
     const galleryGround = document.querySelector('.galleryGround');
-    const contentCon = document.querySelector('.contentCon')
-    const closeBox = document.querySelector('.closeBox');
+    const contentCon = document.querySelector('.contentCon');
+    // const closeBox = document.querySelector('.closeBox');
 
     const rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
     const imgSrc = [];
@@ -56,13 +56,25 @@
     // };
 
     // content 설정
-    function showContent () {
+    function showContent (e) {
         // contentCon.style.display = 'block';
+        let target = e.target
+        while(!target.classList.contains('galleryImg')){
+            if(target.nodeName == 'BODY'){
+                target = null;
+                return;
+            }
+            target = target.parentNode;
+        }
+        // contentCon.style.top = (parseInt(target.dataset.index)-1) * 20 + 'vh';
+
+
+        contentCon.dataset.state = 'open';
     }
-    function closeContent() {
+    function closeContent(e) {
         // contentCon.style.display = 'none';
     }
 
     galleryGround.addEventListener('click', showContent);
-    closeBox.addEventListener('click', closeContent)
+    // closeBox.addEventListener('click', closeContent)
 })()

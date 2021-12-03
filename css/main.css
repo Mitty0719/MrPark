@@ -134,6 +134,7 @@ body{
     background: yellow;
 }
 .galleryCon {
+    position: relative;
     width: 100%;
     height: 20%;
     transition: 1s;
