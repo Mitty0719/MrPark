@@ -1,5 +1,6 @@
 (function(){
     'use strict'
+    const mouseCursor = document.querySelector('.mouseCursor');
     const rows = document.querySelectorAll('.row');
     const galleryGround = document.querySelector('.galleryGround');
     const contentCon = document.querySelector('.contentCon')
@@ -21,6 +22,13 @@
     // };
 
     // rows.forEach(setDirection);
+
+    // mouse focusing 설정
+    window.addEventListener( 'mousemove', function (e) {
+        // mouseCursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+        mouseCursor.style.top = (e.clientY - 25) + 'px';
+        mouseCursor.style.left = (e.clientX - 25) + 'px';
+    });
 
     // row설정
     rows.forEach( function (row, index) {
@@ -49,10 +57,12 @@
 
     // content 설정
     function showContent () {
-        contentCon.style.display = 'block';
-
+        // contentCon.style.display = 'block';
+    }
+    function closeContent() {
+        // contentCon.style.display = 'none';
     }
 
     galleryGround.addEventListener('click', showContent);
-    closeBox.addEventListener('click', function () { contentCon.style.display = 'none'; })
+    closeBox.addEventListener('click', closeContent)
 })()
