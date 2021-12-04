@@ -1,13 +1,14 @@
 (function(){
     'use strict'
     const mouseCursor = document.querySelector('.mouseCursor');
+    const rowSpace = document.querySelector('.rowSpace');
     const rows = document.querySelectorAll('.row');
     const galleryGround = document.querySelector('.galleryGround');
     const contentCon = document.querySelector('.contentCon');
     // const closeBox = document.querySelector('.closeBox');
 
     const rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
-    const imgSrc = [];
+    const imgSrc = ['gallery001.png'];
     // const direction = ['top', 'bottom', 'left', 'right'];
     
     // function setDirection (row, index) {
@@ -23,12 +24,16 @@
 
     // rows.forEach(setDirection);
 
-    // mouse focusing 설정
     window.addEventListener( 'mousemove', function (e) {
         // mouseCursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+        mouseCursorRound(e);
+    });
+
+    // mouse focusing 설정
+    function mouseCursorRound (e) {
         mouseCursor.style.top = (e.clientY - 25) + 'px';
         mouseCursor.style.left = (e.clientX - 25) + 'px';
-    });
+    }
 
     // row설정
     rows.forEach( function (row, index) {
@@ -58,13 +63,13 @@
     // content 설정
     function showContent (e) {
         // contentCon.style.display = 'block';
-        let target = e.target
-        while(!target.classList.contains('galleryImg')){
-            if(target.nodeName == 'BODY'){
-                target = null;
+        let elem = e.target
+        while(!elem.classList.contains('galleryImg')){
+            if(elem.nodeName == 'BODY'){
+                elem = null;
                 return;
             }
-            target = target.parentNode;
+            elem = elem.parentNode;
         }
         // contentCon.style.top = (parseInt(target.dataset.index)-1) * 20 + 'vh';
 
@@ -75,6 +80,17 @@
         // contentCon.style.display = 'none';
     }
 
-    galleryGround.addEventListener('click', showContent);
+    galleryGround.addEventListener( 'click', showContent );
     // closeBox.addEventListener('click', closeContent)
+
+    // word effect
+    function moveWords (e) {
+        let elem = e.target;
+        if(elem.classList.contains('rowChar')){
+            elem.classList.add('rowCharMove');
+            setTimeout(function(){ elem.classList.remove('rowCharMove'); }, 2000);
+        };
+    }
+
+    rowSpace.addEventListener( 'mouseover', moveWords );
 })()
