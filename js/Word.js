@@ -11,7 +11,7 @@ function Word (row, str) {
 
     innerText += '</div>'
 
-    console.log(innerText);
+    // console.log(innerText);
 
     row.innerHTML = innerText;
         // + '<div class="rowText" data-direction="' + this.direction + '">'
