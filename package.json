@@ -1,0 +1,26 @@
+{
+  "name": "mrpark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mitty0719/MrPark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mitty0719/MrPark/issues"
+  },
+  "homepage": "https://github.com/Mitty0719/MrPark#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1043.0",
+    "bip39": "^3.0.4",
+    "uuid": "^8.3.2"
+  }
+}
