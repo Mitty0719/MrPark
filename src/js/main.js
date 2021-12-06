@@ -74,7 +74,7 @@
         // contentCon.style.top = (parseInt(target.dataset.index)-1) * 20 + 'vh';
 
         contentCon.dataset.state = 'open';
-        content.dataset.index = elem.dataset.index;
+        contentCon.dataset.openIndex = elem.dataset.index;
         console.log(elem.dataset.index)
     }
     function closeContent(e) {

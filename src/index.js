@@ -1,7 +1,7 @@
-let http = require('http');
-let fs = require('fs');
+const express = require('express');
+const app = express();
 
-let app = http.createServer(function(request, response){
+app.get('/', function(request, response){
     let url = request.url;
     if(request.url == '/'){
         url = '/main.html';

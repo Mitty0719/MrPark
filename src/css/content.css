@@ -45,25 +45,50 @@
     transition-duration: 0.5s;
     filter: invert(100%);
 }
-.content[data-index='1'],
-.content[data-index='2'],
-.content[data-index='3'],
-.content[data-index='4'],
-.content[data-index='5'] {
+.contentItem {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    opacity: 0%;
 }
-.content[data-index='1'] { /* 사진 좌우 나눠서 마우스 올리면 다양한 필터 넣어주기 */
-    background-image: url('/images/gallery001.png');
+.contentCon[data-open-index='1'] .contentItem1,
+.contentCon[data-open-index='2'] .contentItem2,
+.contentCon[data-open-index='3'] .contentItem3,
+.contentCon[data-open-index='4'] .contentItem4,
+.contentCon[data-open-index='5'] .contentItem5 {
+    display: block;
+    opacity: 100%;
 }
-.content[data-index='2'] { /* 미끄럼틀 영상 - 유튜브 느낌*/
+/* ----- content1 ----- 사진 좌우 나눠서 마우스 올리면 다양한 필터 넣어주기 */
+.contentCon[data-open-index='1'] .contentItem1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
-.content[data-index='3'] { /* 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
+.contentCon .contentItem1 .filterLeft,
+.contentCon .contentItem1 .filterRight {
+    width: 50%;
+    height: 100%;
+    background-image: url('/src/images/gallery001.JPG');
+    background-position-y: -22vw;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    filter: grayscale(50%);
+    transition-duration: 2s;
 }
-.content[data-index='4'] { /* 도넛 먹방 - 인스타 라이브 */
+.contentCon[data-open-index='1'] .contentItem1 .filterLeft{
+    background-position-x: 0vw;
 }
-.content[data-index='5'] { /*  */
+.contentCon[data-open-index='1'] .contentItem1 .filterRight {
+    background-position-x: -50vw;
+}
+.contentCon[data-open-index='2'] .contentItem2 { /* 미끄럼틀 영상 - 유튜브 느낌*/
+}
+.contentCon[data-open-index='3'] .contentItem3 { /* 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
+}
+.contentCon[data-open-index='4'] .contentItem4 { /* 도넛 먹방 - 인스타 라이브 */
+}
+.contentCon[data-open-index='5'] .contentItem5 { /* 지하철 생일 축하 문구 패러디 */
 }
