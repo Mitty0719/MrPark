@@ -58,11 +58,13 @@
 .contentCon[data-open-index='3'] .contentItem3,
 .contentCon[data-open-index='4'] .contentItem4,
 .contentCon[data-open-index='5'] .contentItem5 {
-    display: block;
     opacity: 100%;
 }
+
 /* ----- content1 ----- 사진 좌우 나눠서 마우스 올리면 다양한 필터 넣어주기 */
 .contentCon[data-open-index='1'] .contentItem1 {
+}
+.contentCon .contentItem1 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -78,17 +80,156 @@
     filter: grayscale(50%);
     transition-duration: 2s;
 }
-.contentCon[data-open-index='1'] .contentItem1 .filterLeft{
+.contentCon .contentItem1 .filterLeft{
     background-position-x: 0vw;
 }
-.contentCon[data-open-index='1'] .contentItem1 .filterRight {
+.contentCon .contentItem1 .filterRight {
     background-position-x: -50vw;
 }
-.contentCon[data-open-index='2'] .contentItem2 { /* 미끄럼틀 영상 - 유튜브 느낌*/
+
+/* ----- content2 ----- 미끄럼틀 영상 - 유튜브 느낌 */
+.contentCon[data-open-index='2'] .contentItem2 {
 }
-.contentCon[data-open-index='3'] .contentItem3 { /* 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
+.contentCon .contentItem2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.contentCon[data-open-index='4'] .contentItem4 { /* 도넛 먹방 - 인스타 라이브 */
+.contentItem2 .youtubeCon {
+    width: 60vmax;
+    height: 40vmax;
+    border: 1px solid black;
+    overflow: scroll;
 }
-.contentCon[data-open-index='5'] .contentItem5 { /* 지하철 생일 축하 문구 패러디 */
+.youtubeHeader {
+    width: 100%;
+    height: 10%;
+}
+.youtubeHeader .youtubeLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+.youtubeHeader .youtubeLogo .logo {
+    width: 60%;
+    height: 40%;
+    background-image: url('/src/images/youtube_logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.youtubeVideo {
+    width: 100%;
+    height: 115%;
+}
+.youtubeVideo .videoCon {
+    width: 100%;
+    height: 70%;
+    background: black;
+}
+.youtubeVideo .videoCon .video {
+    width: 100%;
+    height: 100%;
+}
+.youtubeVideo .info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 15%;
+}
+.youtubeVideo .info .title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    font-size: 20px;
+    padding-left: 10px;
+}
+.youtubeVideo .info .visited {
+    display: flex;
+    align-items: center;
+    height: 40%;
+    padding-left: 10px;
+}
+.youtubeVideo .info .likeBox {
+    display: flex;
+    align-items: center;
+    height: 40%;
+}
+.youtubeVideo .info .likeBox li {
+    display: flex;
+    align-items: center;
+    width: 8.5vmax;
+    max-width: 100px;
+}
+.youtubeVideo .info .likeBox li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.youtubeVideo .channel {
+    display: flex;
+    width: 100%;
+    height: 15%;
+}
+.youtubeVideo .channel .channelImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    padding-left: 10px;
+}
+.youtubeVideo .channel .channelImg figure {
+    width: 3.8vw;
+    height: 3.8vw;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background-image: url('/src/images/channelImg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.youtubeVideo .channel .channelName {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    padding-left: 10px;
+}
+.youtubeVideo .channel .channelSub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+}
+.youtubeVideo .channel .channelSub button {
+    width: 5.2vw;
+    height: 2.8vw;
+    min-width: 52px;
+    min-height: 28px;
+    border: none;
+    background: crimson;
+    color: white;
+}
+.youtubeAnother {
+    display: none;
+}
+.youtubeComment {
+    width: 100%;
+    height: 50%;
+    background: skyblue;
+}
+
+/* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
+.contentCon[data-open-index='3'] .contentItem3 {
+}
+
+/* ----- content4 ----- 도넛 먹방 - 인스타 라이브 */
+.contentCon[data-open-index='4'] .contentItem4 {
+}
+
+/* ----- content5 ----- 지하철 생일 축하 문구 패러디 */
+.contentCon[data-open-index='5'] .contentItem5 {
 }
