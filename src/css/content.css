@@ -100,6 +100,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('/src/images/youtube_background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .contentItem2 .youtubeCon {
     width: 60vmax;
@@ -110,6 +114,7 @@
 .youtubeHeader {
     width: 100%;
     height: 10%;
+    background: white;
 }
 .youtubeHeader .youtubeLogo {
     display: flex;
@@ -128,6 +133,7 @@
 .youtubeVideo {
     width: 100%;
     height: 115%;
+    background: white;
 }
 .youtubeVideo hr {
     width: 95%;
@@ -234,7 +240,7 @@
 .youtubeComment {
     width: 100%;
     height: 50%;
-    /* background: skyblue; */
+    background: white;
 }
 
 /* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
