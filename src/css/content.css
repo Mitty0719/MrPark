@@ -1,4 +1,5 @@
 .contentCon {
+    position: relative;
     transition-duration: 1s;
     overflow: hidden;
 }
@@ -37,6 +38,7 @@
     cursor: none;
     opacity: 0%;
     transition-duration: 0.5s;
+    z-index: 200;
 }
 .closeBox .closeImg {
     width: 100%;
@@ -46,6 +48,9 @@
     filter: invert(100%);
 }
 .contentItem {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -59,6 +64,7 @@
 .contentCon[data-open-index='4'] .contentItem4,
 .contentCon[data-open-index='5'] .contentItem5 {
     opacity: 100%;
+    z-index: 100;
 }
 
 /* ----- content1 ----- 사진 좌우 나눠서 마우스 올리면 다양한 필터 넣어주기 */
@@ -123,6 +129,11 @@
     width: 100%;
     height: 115%;
 }
+.youtubeVideo hr {
+    width: 95%;
+    margin: 0 0 0 2.5%;
+    border: 1px solid #ddd;
+}
 .youtubeVideo .videoCon {
     width: 100%;
     height: 70%;
@@ -144,14 +155,15 @@
     align-items: center;
     width: 100%;
     height: 60%;
-    font-size: 20px;
-    padding-left: 10px;
+    font-size: calc(1vw + 10px);
+    padding-left: 20px;
 }
 .youtubeVideo .info .visited {
     display: flex;
     align-items: center;
     height: 40%;
-    padding-left: 10px;
+    padding-left: 20px;
+    font-size: calc(1vw + 6px);
 }
 .youtubeVideo .info .likeBox {
     display: flex;
@@ -163,10 +175,11 @@
     align-items: center;
     width: 8.5vmax;
     max-width: 100px;
+    font-size: calc(0.8vw + 6px);
 }
 .youtubeVideo .info .likeBox li img {
-    width: 20px;
-    height: 20px;
+    width: calc(0.8vw + 6px);
+    height: calc(0.8vw + 6px);
     margin-right: 10px;
 }
 .youtubeVideo .channel {
@@ -184,8 +197,8 @@
 .youtubeVideo .channel .channelImg figure {
     width: 3.8vw;
     height: 3.8vw;
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 45px;
+    min-height: 45px;
     border-radius: 50%;
     background-image: url('/src/images/channelImg.png');
     background-repeat: no-repeat;
@@ -197,6 +210,8 @@
     align-items: center;
     width: 75%;
     padding-left: 10px;
+    font-size: calc(0.8vw + 8px);
+    font-weight: 600;
 }
 .youtubeVideo .channel .channelSub {
     display: flex;
@@ -219,7 +234,7 @@
 .youtubeComment {
     width: 100%;
     height: 50%;
-    background: skyblue;
+    /* background: skyblue; */
 }
 
 /* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
