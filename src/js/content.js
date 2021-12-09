@@ -5,9 +5,20 @@
 
     const filterLeft = document.querySelector('.filterLeft');
     const filterRight = document.querySelector('.filterRight');
+
     const canvasBall = document.querySelector('#canvasBall');
     const ctx = canvasBall.getContext('2d');
     const ballList = [];
+
+    const instaItems = document.querySelector('.instaItems');
+    const instaItemList = document.querySelectorAll('.instaItem');
+    let instaItemIndex = 0;
+    let instaItemWidth = parseInt(window.getComputedStyle(instaItems).getPropertyValue('width'));
+
+    // window resize
+    window.addEventListener('resize', function(e){
+        instaItemWidth = parseInt(window.getComputedStyle(instaItems).getPropertyValue('width'));
+    });
 
     // content 설정
     function showContent (e) {
@@ -72,4 +83,26 @@
     };
     canvasBall.addEventListener('click', makeBall);
     animateBall();
+
+    // Content 4 - Instagram
+    let mouseDownXPos;
+    let mouseUpXPos;
+
+    instaItems.addEventListener('dragstart', function(e){
+        mouseDownXPos = e.pageX;
+        console.log(e.pageX);
+    });
+    // instaItems.addEventListener('drag', function(e){
+    //     instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + (mouseDownXPos - e.pageX) + 'px';
+    // });
+    instaItems.addEventListener('dragend', function(e){
+        mouseUpXPos = e.pageX;
+        if (mouseDownXPos > mouseUpXPos) {
+            instaItemIndex++;
+        }
+        else if (mouseDownXPos < mouseUpXPos) {
+            instaItemIndex--;
+        }
+        instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
+    });
 })()

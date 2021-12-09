@@ -268,13 +268,32 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-.instaCon .instaItems {
-    width: 22vmax;
-    height: 20vmax;
-    background: red;
+.instaCon .instaItemCon {
+    position: absolute;
+    top: 7.2vmax;
+    left: 0.9vmax;
+    width: 26.3vmax;
+    height: 26vmax;
+}
+.instaCon .instaItemCon .instaItems {
+    display: inline-flex;
+    position: absolute;
+    flex-wrap: wrap;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
 }
 .instaCon .instaItems .instaItem {
-    
+    width: 100%;
+    height: 100%;
+}
+.instaItem img,
+.instaItem video {
+    width: 100%;
+    height: 100%;
 }
 
 /* ----- content5 ----- 지하철 생일 축하 문구 패러디 */

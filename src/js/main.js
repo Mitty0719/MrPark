@@ -3,6 +3,7 @@
     const mouseCursor = document.querySelector('.mouseCursor');
     const rowSpace = document.querySelector('.rowSpace');
     const rows = document.querySelectorAll('.row');
+    // const galleryGround = document.querySelector('.galleryGround');
 
     const rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
     // const direction = ['top', 'bottom', 'left', 'right'];
@@ -20,7 +21,7 @@
 
     // rows.forEach(setDirection);
 
-    window.addEventListener( 'mousemove', function (e) {
+    window.addEventListener('mousemove', function (e) {
         // mouseCursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
         mouseCursorRound(e);
     });
@@ -31,8 +32,16 @@
         mouseCursor.style.left = (e.clientX - 25) + 'px';
     }
 
+    // galleryGround 커서 색상 변경
+    // galleryGround.addEventListener('mouseenter', function (e) {
+    //     mouseCursor.style.backgroundColor = 'rgba(255, 0, 0, 1)';
+    // });
+    // galleryGround.addEventListener('mouseout', function (e) {
+    //     mouseCursor.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+    // });
+
     // row설정
-    rows.forEach( function (row, index) {
+    rows.forEach(function (row, index) {
         if (!row.classList.contains('galleryRow')) {
             let rowText = new Word(row, rowStr[index], index);
             // row 색상 설정
