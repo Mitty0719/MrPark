@@ -3,10 +3,10 @@ class Ball{
         this.x = x; // x좌표
         this.y = y; // y좌표
         this.c = 'red'; // 시작할 때 공의 색깔
-        this.size = 50; // 공의 반지름
+        this.size = parseInt(Math.random() * 1000 % 120 + 30); // 공의 반지름
         this.power = 1; // 공의 움직임 세기
         this.gravity = this.power; // 공이 상하로 움직이는 값
-        this.directionX = 5; // 공이 좌우로 움직이는 값
+        this.directionX = parseInt(Math.random() * 1000 % 40 - 20); // 공이 좌우로 움직이는 값
         this.img = new Image();
         this.img.src = '/src/images/ball00'+ parseInt(Math.random() * 1000 % 5 + 1)  +'.png';
 
@@ -31,7 +31,8 @@ class Ball{
 
         //x값 변동 계산
         this.x += this.directionX;
-        this.directionX *= 0.0995;
+        this.directionX *= 0.998;
+        // console.log(this.x);
         if(this.x + this.size > this.canvas.width || this.x - this.size < 0){
             this.directionX *= -1;
         }
@@ -43,7 +44,6 @@ class Ball{
         this.ctx.arc(this.x, this.y, this.size, 0, Math.PI*2, true);
         this.ctx.closePath();
         this.ctx.drawImage(this.img, this.x - this.size, this.y - this.size, this.size*2, this.size*2);
-
 
         this.ctx.fill();
     };
