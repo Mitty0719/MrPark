@@ -253,6 +253,29 @@
 /* ----- content4 ----- 도넛 먹방 - 인스타 라이브 */
 .contentCon[data-open-index='4'] .contentItem4 {
 }
+.contentCon .contentItem4 {
+    perspective: 3000px;
+}
+.instaCon {
+    position: absolute;
+    top: calc(50% - 22.5vmax);
+    left: calc(50% - 14vmax);
+    width: 28vmax;
+    height: 45vmax;
+    transform-style: preserve-3d;
+    background-image: url('/src/images/instagram_frame.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.instaCon .instaItems {
+    width: 22vmax;
+    height: 20vmax;
+    background: red;
+}
+.instaCon .instaItems .instaItem {
+    
+}
 
 /* ----- content5 ----- 지하철 생일 축하 문구 패러디 */
 .contentCon[data-open-index='5'] .contentItem5 {

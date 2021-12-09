@@ -1,14 +1,47 @@
 (function(){
+    const galleryGround = document.querySelector('.galleryGround');
+    const contentCon = document.querySelector('.contentCon');
+    const closeBox = document.querySelector('.closeBox');
+
     const filterLeft = document.querySelector('.filterLeft');
     const filterRight = document.querySelector('.filterRight');
     const canvasBall = document.querySelector('#canvasBall');
+    const ctx = canvasBall.getContext('2d');
+    const ballList = [];
 
+    // content 설정
+    function showContent (e) {
+        // contentCon.style.display = 'block';
+        let elem = e.target;
+        while(!elem.classList.contains('galleryImg')){
+            if(elem.nodeName == 'BODY'){
+                elem = null;
+                return;
+            }
+            elem = elem.parentNode;
+        }
+        // contentCon.style.top = (parseInt(target.dataset.index)-1) * 20 + 'vh';
+
+        contentCon.dataset.state = 'open';
+        contentCon.dataset.openIndex = elem.dataset.index;
+        console.log(elem.dataset.index)
+    }
+    function closeContent(e) {
+        contentCon.dataset.state = 'close';
+        // ballList 초기화
+        setTimeout(function(){
+            ballList.length = 0;
+        }, 1000);
+    }
+
+    galleryGround.addEventListener( 'click', showContent );
+    closeBox.addEventListener('click', closeContent)
+    
     // Content 1 - HalfFilter
     filterLeft.addEventListener('mouseover', setHalfFilter);
     filterRight.addEventListener('mouseover', setHalfFilter);
 
     function setHalfFilter (e) {
-        
         const under100 = parseInt(Math.random() * 1000 % 100);
         const under200 = parseInt(Math.random() * 1000 % 300 + 50);
         const degree = parseInt(Math.random() * 1000 % 180);
@@ -22,8 +55,6 @@
     };
 
     // Content 3 - FaceBall
-    const ctx = canvasBall.getContext('2d');
-    const ballList = [];
     canvasBall.width = window.innerWidth;
     canvasBall.height = window.innerHeight;
     function makeBall (e) {

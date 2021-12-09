@@ -3,10 +3,6 @@
     const mouseCursor = document.querySelector('.mouseCursor');
     const rowSpace = document.querySelector('.rowSpace');
     const rows = document.querySelectorAll('.row');
-    const galleryGround = document.querySelector('.galleryGround');
-    const contentCon = document.querySelector('.contentCon');
-    const content = document.querySelector('.content');
-    const closeBox = document.querySelector('.closeBox');
 
     const rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
     // const direction = ['top', 'bottom', 'left', 'right'];
@@ -60,30 +56,6 @@
         // galleryImgBox.insertBefore(lastImg, firstImg);
     // };
 
-    // content 설정
-    function showContent (e) {
-        // contentCon.style.display = 'block';
-        let elem = e.target;
-        while(!elem.classList.contains('galleryImg')){
-            if(elem.nodeName == 'BODY'){
-                elem = null;
-                return;
-            }
-            elem = elem.parentNode;
-        }
-        // contentCon.style.top = (parseInt(target.dataset.index)-1) * 20 + 'vh';
-
-        contentCon.dataset.state = 'open';
-        contentCon.dataset.openIndex = elem.dataset.index;
-        console.log(elem.dataset.index)
-    }
-    function closeContent(e) {
-        contentCon.dataset.state = 'close';
-    }
-
-    galleryGround.addEventListener( 'click', showContent );
-    closeBox.addEventListener('click', closeContent)
-
     // word effect 설정
     function moveWords (e) {
         let elem = e.target;
@@ -94,4 +66,5 @@
     }
 
     rowSpace.addEventListener( 'mouseover', moveWords );
+
 })()
