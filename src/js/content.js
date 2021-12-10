@@ -6,6 +6,8 @@
     const filterLeft = document.querySelector('.filterLeft');
     const filterRight = document.querySelector('.filterRight');
 
+    const youtubeVideo = document.querySelector('.youtubeVideo video');
+
     const canvasBall = document.querySelector('#canvasBall');
     const ctx = canvasBall.getContext('2d');
     const ballList = [];
@@ -49,6 +51,14 @@
 
         // instaItem Index 초기화
         resetInstaIndex();
+
+        stopVideo(instaVideo);
+        stopVideo(youtubeVideo);
+    }
+    function stopVideo(video){
+        video.pause();
+        video.currentTime = 0;
+        video.load();
     }
 
     galleryGround.addEventListener( 'click', showContent );
@@ -117,17 +127,13 @@
         instaItemIndex++;
         if(instaItemIndex >= instaItemMaxIndex) {
             instaItemIndex = 0;
-            instaVideo.pause();
-            instaVideo.currentTime = 0;
-            instaVideo.load();
+            stopVideo(instaVideo);
         }
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     }
     function resetInstaIndex () {
         instaItemIndex = 0;
-        instaVideo.pause();
-        instaVideo.currentTime = 0;
-        instaVideo.load();
+        stopVideo(instaVideo);
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     }
 })()

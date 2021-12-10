@@ -113,26 +113,25 @@
 }
 .youtubeHeader {
     width: 100%;
-    height: 10%;
+    height: 3.5vmax;
     background: white;
 }
 .youtubeHeader .youtubeLogo {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%;
+    width: 10vmax;
     height: 100%;
 }
 .youtubeHeader .youtubeLogo .logo {
-    width: 60%;
-    height: 40%;
+    width: 66%;
+    height: 44%;
     background-image: url('/src/images/youtube_logo.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 .youtubeVideo {
     width: 100%;
-    height: 115%;
     background: white;
 }
 .youtubeVideo hr {
@@ -142,7 +141,7 @@
 }
 .youtubeVideo .videoCon {
     width: 100%;
-    height: 70%;
+    height: 30vmax;
     background: black;
 }
 .youtubeVideo .videoCon .video {
@@ -154,27 +153,26 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    height: 15%;
 }
 .youtubeVideo .info .title {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 60%;
+    height: 5vmax;
     font-size: calc(1vw + 10px);
     padding-left: 20px;
 }
 .youtubeVideo .info .visited {
     display: flex;
     align-items: center;
-    height: 40%;
+    height: 3vmax;
     padding-left: 20px;
     font-size: calc(1vw + 6px);
 }
 .youtubeVideo .info .likeBox {
     display: flex;
     align-items: center;
-    height: 40%;
+    height: 3vmax;
 }
 .youtubeVideo .info .likeBox li {
     display: flex;
@@ -191,20 +189,20 @@
 .youtubeVideo .channel {
     display: flex;
     width: 100%;
-    height: 15%;
+    height: 5vmax;
 }
 .youtubeVideo .channel .channelImg {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 10%;
-    padding-left: 10px;
+    padding-left: 2.5%;
 }
 .youtubeVideo .channel .channelImg figure {
-    width: 3.8vw;
-    height: 3.8vw;
-    min-width: 45px;
-    min-height: 45px;
+    width: 3.6vmax;
+    height: 3.6vmax;
+    min-width: 30px;
+    min-height: 30px;
     border-radius: 50%;
     background-image: url('/src/images/channelImg.png');
     background-repeat: no-repeat;
@@ -242,6 +240,48 @@
     height: 50%;
     background: white;
 }
+.youtubeComment .commentList {
+    width: 95%;
+    margin-left: 2.5%;
+}
+.youtubeComment .commentList .commentItem {
+    display: flex;
+    width: 100%;
+    height: 5vmax;
+}
+.commentList .commentItem .commentImageCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+.commentImageCon img {
+    width: 3.4vmax;
+    height: 3.4vmax;
+}
+.commentList .commentItem .commentWordCon {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+}
+.commentWordCon .nickname {
+    height: 1.7vmax;
+    line-height: 1.7vmax;
+    color: #888;
+}
+.commentWordCon .nickname #commnetName{
+    font-weight: 600;
+    color: #000;
+}
+.commentWordCon .commentWord {
+    height: 1.7vmax;
+    line-height: 1.7vmax;
+}
+
 
 /* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
 .contentCon[data-open-index='3'] .contentItem3 {
@@ -303,4 +343,12 @@
 
 /* ----- content5 ----- 지하철 생일 축하 문구 패러디 */
 .contentCon[data-open-index='5'] .contentItem5 {
+}
+.contentCon .contentItem5 .campbellsCon {
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/images/campbells.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
