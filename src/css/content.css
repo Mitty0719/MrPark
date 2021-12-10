@@ -274,6 +274,7 @@
     left: 0.9vmax;
     width: 26.3vmax;
     height: 26vmax;
+    overflow: hidden;
 }
 .instaCon .instaItemCon .instaItems {
     display: inline-flex;
@@ -287,12 +288,16 @@
     transition: 1s;
 }
 .instaCon .instaItems .instaItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
+    background: black;
 }
 .instaItem img,
 .instaItem video {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
 }
 

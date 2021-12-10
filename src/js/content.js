@@ -10,9 +10,12 @@
     const ctx = canvasBall.getContext('2d');
     const ballList = [];
 
+    const instaItemCon = document.querySelector('.instaItemCon');
     const instaItems = document.querySelector('.instaItems');
     const instaItemList = document.querySelectorAll('.instaItem');
+    const instaVideo = document.querySelector('.instaVideo');
     let instaItemIndex = 0;
+    let instaItemMaxIndex = document.querySelectorAll('.instaItem').length;
     let instaItemWidth = parseInt(window.getComputedStyle(instaItems).getPropertyValue('width'));
 
     // window resize
@@ -43,6 +46,9 @@
         setTimeout(function(){
             ballList.length = 0;
         }, 1000);
+
+        // instaItem Index 초기화
+        resetInstaIndex();
     }
 
     galleryGround.addEventListener( 'click', showContent );
@@ -85,24 +91,43 @@
     animateBall();
 
     // Content 4 - Instagram
-    let mouseDownXPos;
-    let mouseUpXPos;
-
-    instaItems.addEventListener('dragstart', function(e){
-        mouseDownXPos = e.pageX;
-        console.log(e.pageX);
-    });
+    // video 태그 drag 이벤트 안먹어서 click으로 수정
+    // let mouseDownXPos;
+    // let mouseUpXPos;
+    // instaItemCon.addEventListener('dragstart', function(e){
+    //     mouseDownXPos = e.pageX;
+    // });
     // instaItems.addEventListener('drag', function(e){
     //     instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + (mouseDownXPos - e.pageX) + 'px';
     // });
-    instaItems.addEventListener('dragend', function(e){
-        mouseUpXPos = e.pageX;
-        if (mouseDownXPos > mouseUpXPos) {
-            instaItemIndex++;
-        }
-        else if (mouseDownXPos < mouseUpXPos) {
-            instaItemIndex--;
+    // instaItemCon.addEventListener('dragend', function(e){
+    //     console.log(e.target);
+    //     mouseUpXPos = e.pageX;
+    //     if (mouseDownXPos > mouseUpXPos) {
+    //         instaItemIndex++;
+    //     }
+    //     else if (mouseDownXPos < mouseUpXPos) {
+    //         instaItemIndex--;
+    //     }
+    //     instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
+    // });
+    instaItemCon.addEventListener('click', moveInstaItem);
+
+    function moveInstaItem (e) {
+        instaItemIndex++;
+        if(instaItemIndex >= instaItemMaxIndex) {
+            instaItemIndex = 0;
+            instaVideo.pause();
+            instaVideo.currentTime = 0;
+            instaVideo.load();
         }
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
-    });
+    }
+    function resetInstaIndex () {
+        instaItemIndex = 0;
+        instaVideo.pause();
+        instaVideo.currentTime = 0;
+        instaVideo.load();
+        instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
+    }
 })()
