@@ -19,6 +19,8 @@
     const ctx = canvasBall.getContext('2d');
     const ballList = [];
 
+    const contentItem4 = document.querySelector('.contentItem4');
+    const instaCon = document.querySelector('.instaCon');
     const instaItemCon = document.querySelector('.instaItemCon');
     const instaItems = document.querySelector('.instaItems');
     const instaItemList = document.querySelectorAll('.instaItem');
@@ -47,7 +49,7 @@
 
         contentCon.dataset.state = 'open';
         contentCon.dataset.openIndex = elem.dataset.index;
-        console.log(elem.dataset.index)
+        // console.log(elem.dataset.index)
     }
     function closeContent(e) {
         contentCon.dataset.state = 'close';
@@ -94,23 +96,22 @@
     };
 
     // Content 2 - Youtube
-    let x = 0, y = 0;
-    let currentX = 0, currentY = 0;
-    let speed = 0.005;
+    let youtubeX = 0, youtubeY = 0;
+    let youtubeCurrentX = 0, youtubeCurrentY = 0;
+    let youtubeSpeed = 0.005;
     function moveBackground (e) {
-        x = e.clientX - window.innerWidth / 2;
-        y = e.clientY - window.innerHeight / 2;
+        youtubeX = e.clientX - window.innerWidth / 2;
+        youtubeY = e.clientY - window.innerHeight / 2;
     }
     function moveBackgroundRaf () {
-        currentX += (x - currentX) * speed;
-        currentY += (y - currentY) * speed;
-        backImage.style.transform = 'translate(' + - (currentX/20) + 'px, ' + -(currentY/20) + 'px)';
+        youtubeCurrentX += (youtubeX - youtubeCurrentX) * youtubeSpeed;
+        youtubeCurrentY += (youtubeY - youtubeCurrentY) * youtubeSpeed;
+        backImage.style.transform = 'translate(' + - (youtubeCurrentX/20) + 'px, ' + -(youtubeCurrentY/20) + 'px)';
         window.requestAnimationFrame(moveBackgroundRaf); 
     }
     moveBackgroundRaf();
     
     function activeCommentSubmit (e) {
-        console.log('!');
         if(commentText.value.trim() != ''){
             canSubmit = true;
             commentSubmit.classList.add('activeSubmit');
@@ -143,7 +144,6 @@
         commentItem.innerHTML = commentItemHtml;
         commentList.append(commentItem);
 
-        console.log(canSubmit);
     }
     function cancelComment (e) {
         commentText.value = '';
@@ -195,8 +195,19 @@
     //     }
     //     instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     // });
-    instaItemCon.addEventListener('click', moveInstaItem);
-
+    let instaX = 0, instaY = 0;
+    let instaCurrentX = 0, instaCurrentY = 0;
+    let instaSpeed = 0.005;
+    function rotateInstaCon (e) {
+        instaX = e.clientX - window.innerWidth / 2;
+        instaY = e.clientY - window.innerHeight / 2;
+    }
+    function rotateInstaConRaf () {
+        instaCurrentX += (instaX - instaCurrentX) * instaSpeed;
+        instaCurrentY += (instaY - instaCurrentY) * instaSpeed;
+        instaCon.style.transform = 'rotateY(' + instaCurrentX / 20 + 'deg) rotateX(' + instaCurrentY / 20 + 'deg)';
+        window.requestAnimationFrame(rotateInstaConRaf);;
+    }
     function moveInstaItem (e) {
         instaItemIndex++;
         if(instaItemIndex >= instaItemMaxIndex) {
@@ -204,10 +215,14 @@
             stopVideo(instaVideo);
         }
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
-    }
+    };
     function resetInstaIndex () {
         instaItemIndex = 0;
         stopVideo(instaVideo);
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
-    }
+    };
+    
+    rotateInstaConRaf();
+    contentItem4.addEventListener('mousemove', rotateInstaCon)
+    instaItemCon.addEventListener('click', moveInstaItem);
 })()
