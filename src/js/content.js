@@ -7,6 +7,11 @@
     const filterRight = document.querySelector('.filterRight');
 
     const youtubeVideo = document.querySelector('.youtubeVideo video');
+    const commentList = document.querySelector('.commentList');
+    const commentText = document.querySelector('.commentText');
+    const commentSubmit = document.querySelector('.commentSubmit');
+    const commentCancel = document.querySelector('.commentCancel');
+    let canSubmit = false;
 
     const canvasBall = document.querySelector('#canvasBall');
     const ctx = canvasBall.getContext('2d');
@@ -44,6 +49,11 @@
     }
     function closeContent(e) {
         contentCon.dataset.state = 'close';
+        // youtube 댓글 초기화
+        commentText.value = '';
+        canSubmit = false;
+        commentSubmit.classList.remove('activeSubmit');
+
         // ballList 초기화
         setTimeout(function(){
             ballList.length = 0;
@@ -80,6 +90,53 @@
 
         this.style.filter = contrast + hueRotate + saturate;
     };
+
+    // Content 2 - Youtube
+
+    function activeCommentSubmit (e) {
+        console.log('!');
+        if(commentText.value.trim() != ''){
+            canSubmit = true;
+            commentSubmit.classList.add('activeSubmit');
+        }
+        else {
+            canSubmit = false;
+            commentSubmit.classList.remove('activeSubmit');
+        }
+    };
+    function submitComment (e) {
+        const text = commentText.value;
+
+        canSubmit = false;
+        commentSubmit.classList.remove('activeSubmit');
+        commentText.value = '';
+
+        const commentItemHtml = ''
+        // + '<li class="commentItem">'
+        + '    <div class="commentImageCon">'
+        + '        <img src="images/youtube000.png" alt=""/>'
+        + '    </div>'
+        + '    <div class="commentWordCon">'
+        + '        <div class="nickname"><span id="commnetName">Park</span> 방금 전</div>'
+        + '        <div class="commentWord">'+ text +'</div>'
+        + '    </div>'
+        // + '</li>';
+        // commentList.innerHTML = commentList.innerHTML + commentItem; -- 추가한 이후로 이벤트가 먹통이됨, 개체 만들어 append로 추가
+        const commentItem = document.createElement('li');
+        commentItem.classList.add('commentItem');
+        commentItem.innerHTML = commentItemHtml;
+        commentList.append(commentItem);
+
+        console.log(canSubmit);
+    }
+    function cancelComment (e) {
+        commentText.value = '';
+        commentSubmit.classList.remove('activeSubmit');
+    }
+
+    commentText.addEventListener('keyup', activeCommentSubmit);
+    commentCancel.addEventListener('click', cancelComment);
+    commentSubmit.addEventListener('click', submitComment);
 
     // Content 3 - FaceBall
     canvasBall.width = window.innerWidth;

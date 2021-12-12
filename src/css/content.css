@@ -1,3 +1,7 @@
+@keyframes ani-youtubeBackground {
+    
+}
+
 .contentCon {
     position: relative;
     transition-duration: 1s;
@@ -237,18 +241,66 @@
 }
 .youtubeComment {
     width: 100%;
-    height: 50%;
     background: white;
 }
 .youtubeComment .commentList {
     width: 95%;
     margin-left: 2.5%;
 }
+.youtubeComment .commentList .commentInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 7vmax;
+    min-height: 100px;
+}
+.commentList .commentInput .commentText {
+    width: 90%;
+    height: 1.5vmax;
+    font-size: 16px;
+    border: none;
+    border-bottom: 3px solid #ddd;
+    margin-bottom: 1.5vmax;
+}
+.commentList .commentInput .inputButtons {
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    gap: 10px;
+}
+.commentSubmit,
+.commentCancel{
+    width: 4.4vmax;
+    height: 2.2vmax;
+    min-width: 66px;
+    min-height: 33px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: none;
+}
+.commentSubmit{
+    color: #aaa;
+    background-color: #eee;
+}
+.activeSubmit{
+    color: white;
+    background-color: dodgerblue;
+}
+.commentCancel{
+    color: #888;
+    background-color: white;
+}
+
 .youtubeComment .commentList .commentItem {
     display: flex;
     width: 100%;
     height: 5vmax;
+    min-height: 60px;
 }
+.commentList .commentInput .commentImageCon,
 .commentList .commentItem .commentImageCon {
     display: flex;
     justify-content: center;
