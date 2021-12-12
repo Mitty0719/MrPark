@@ -1,7 +1,3 @@
-@keyframes ani-youtubeBackground {
-    
-}
-
 .contentCon {
     position: relative;
     transition-duration: 1s;
@@ -104,10 +100,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.contentCon .backImage {
+    position: absolute;
+    top: -10vh;
+    left: -10vw;
+    width: 120vw;
+    height: 120vh;
     background-image: url('/src/images/youtube_background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    filter: grayscale(1);
+    z-index: -1;
 }
 .contentItem2 .youtubeCon {
     width: 60vmax;

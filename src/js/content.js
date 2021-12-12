@@ -6,6 +6,8 @@
     const filterLeft = document.querySelector('.filterLeft');
     const filterRight = document.querySelector('.filterRight');
 
+    const contentItem2 = document.querySelector('.contentItem2');
+    const backImage = document.querySelector('.contentItem2 .backImage');
     const youtubeVideo = document.querySelector('.youtubeVideo video');
     const commentList = document.querySelector('.commentList');
     const commentText = document.querySelector('.commentText');
@@ -92,7 +94,21 @@
     };
 
     // Content 2 - Youtube
-
+    let x = 0, y = 0;
+    let currentX = 0, currentY = 0;
+    let speed = 0.005;
+    function moveBackground (e) {
+        x = e.clientX - window.innerWidth / 2;
+        y = e.clientY - window.innerHeight / 2;
+    }
+    function moveBackgroundRaf () {
+        currentX += (x - currentX) * speed;
+        currentY += (y - currentY) * speed;
+        backImage.style.transform = 'translate(' + - (currentX/20) + 'px, ' + -(currentY/20) + 'px)';
+        window.requestAnimationFrame(moveBackgroundRaf); 
+    }
+    moveBackgroundRaf();
+    
     function activeCommentSubmit (e) {
         console.log('!');
         if(commentText.value.trim() != ''){
@@ -134,6 +150,7 @@
         commentSubmit.classList.remove('activeSubmit');
     }
 
+    contentItem2.addEventListener('mousemove', moveBackground);
     commentText.addEventListener('keyup', activeCommentSubmit);
     commentCancel.addEventListener('click', cancelComment);
     commentSubmit.addEventListener('click', submitComment);
