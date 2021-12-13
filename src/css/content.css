@@ -90,7 +90,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/src/images/mona.png');
+    background-image: url('../images/mona.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -118,7 +118,7 @@
 .filterCon .filterItem {
     width: 20vw;
     height: 20vh;
-    background-image: url('/src/images/gallery001.JPG');
+    background-image: url('../images/gallery001.JPG');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -160,7 +160,7 @@
     left: -10vw;
     width: 120vw;
     height: 120vh;
-    background-image: url('/src/images/youtube_background.png');
+    background-image: url('../images/youtube_background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -188,7 +188,7 @@
 .youtubeHeader .youtubeLogo .logo {
     width: 66%;
     height: 44%;
-    background-image: url('/src/images/youtube_logo.png');
+    background-image: url('../images/youtube_logo.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -266,7 +266,7 @@
     min-width: 30px;
     min-height: 30px;
     border-radius: 50%;
-    background-image: url('/src/images/channelImg.png');
+    background-image: url('../images/channelImg.png');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -418,7 +418,7 @@
 .instaCon {
     width: 100%;
     height: 100%;
-    background-image: url('/src/images/instagram_frame.png');
+    background-image: url('../images/instagram_frame.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -505,7 +505,7 @@
 .contentCon .contentItem5 .campbellsCon {
     width: 100%;
     height: 100%;
-    background-image: url('/src/images/campbells.png');
+    background-image: url('../images/campbells.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

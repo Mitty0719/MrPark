@@ -8,7 +8,7 @@ class Ball{
         this.gravity = this.power; // 공이 상하로 움직이는 값
         this.directionX = parseInt(Math.random() * 1000 % 40 - 20); // 공이 좌우로 움직이는 값
         this.img = new Image();
-        this.img.src = '/src/images/ball00'+ parseInt(Math.random() * 1000 % 5 + 1)  +'.png';
+        this.img.src = '../images/ball00'+ parseInt(Math.random() * 1000 % 5 + 1)  +'.png';
 
         // 나중에 개선하기, 프로토타입에 옮길까??
         this.canvas = canvas;

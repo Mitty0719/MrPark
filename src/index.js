@@ -1,5 +1,13 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
+
+// app.use('/css', express.static(path.join(__dirname, '/css')));
+// app.use('/js', express.static(path.join(__dirname, '/js')));
+// app.use('/images', express.static(path.join(__dirname, '/images')));
+// app.use('/videos', express.static(path.join(__dirname, '/videos')));
+app.use(express.static(path.join(__dirname, '/')));
 
 app.get('/', function(request, response){
     let url = request.url;
