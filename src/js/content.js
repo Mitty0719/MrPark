@@ -1,10 +1,12 @@
+// const { ManagedBlockchain } = require("aws-sdk");
+
 (function(){
     const galleryGround = document.querySelector('.galleryGround');
     const contentCon = document.querySelector('.contentCon');
     const closeBox = document.querySelector('.closeBox');
 
-    const filterLeft = document.querySelector('.filterLeft');
-    const filterRight = document.querySelector('.filterRight');
+    const monaFrame = document.querySelector('.monaFrame');
+    const filterCon = document.querySelector('.filterCon');
 
     const contentItem2 = document.querySelector('.contentItem2');
     const backImage = document.querySelector('.contentItem2 .backImage');
@@ -28,6 +30,8 @@
     let instaItemIndex = 0;
     let instaItemMaxIndex = document.querySelectorAll('.instaItem').length;
     let instaItemWidth = parseInt(window.getComputedStyle(instaItems).getPropertyValue('width'));
+
+    const replyCon = document.querySelector('.replyCon');
 
     // window resize
     window.addEventListener('resize', function(e){
@@ -53,6 +57,9 @@
     }
     function closeContent(e) {
         contentCon.dataset.state = 'close';
+        // filterCon 닫기
+        hideFilterCon();
+
         // youtube 댓글 초기화
         commentText.value = '';
         canSubmit = false;
@@ -79,21 +86,29 @@
     closeBox.addEventListener('click', closeContent)
     
     // Content 1 - HalfFilter
-    filterLeft.addEventListener('mouseover', setHalfFilter);
-    filterRight.addEventListener('mouseover', setHalfFilter);
+    // filterLeft.addEventListener('mouseover', setHalfFilter);
+    // filterRight.addEventListener('mouseover', setHalfFilter);
+    // function setRandomFilter (e) {
+    //     const under100 = parseInt(Math.random() * 1000 % 100);
+    //     const under200 = parseInt(Math.random() * 1000 % 300 + 50);
+    //     const degree = parseInt(Math.random() * 1000 % 180);
 
-    function setHalfFilter (e) {
-        const under100 = parseInt(Math.random() * 1000 % 100);
-        const under200 = parseInt(Math.random() * 1000 % 300 + 50);
-        const degree = parseInt(Math.random() * 1000 % 180);
+    //     let contrast = 'contrast(' + under200 + '%) ';
+    //     let hueRotate = 'hue-rotate(' + degree + 'deg) ';
+    //     let invert = 'invert(' + under100 + '%) ';
+    //     let saturate = 'saturate(' + under200 + '%) ';
 
-        let contrast = 'contrast(' + under200 + '%) ';
-        let hueRotate = 'hue-rotate(' + degree + 'deg) ';
-        let invert = 'invert(' + under100 + '%) ';
-        let saturate = 'saturate(' + under200 + '%) ';
+    //     this.style.filter = contrast + hueRotate + saturate;
+    // };
 
-        this.style.filter = contrast + hueRotate + saturate;
-    };
+    monaFrame.addEventListener('click', showFilterCon);
+
+    function showFilterCon (e) {
+        filterCon.style.top = 0;
+    }
+    function hideFilterCon (e) {
+        filterCon.style.top = -100 + 'vh';
+    }
 
     // Content 2 - Youtube
     let youtubeX = 0, youtubeY = 0;
@@ -225,4 +240,38 @@
     rotateInstaConRaf();
     contentItem4.addEventListener('mousemove', rotateInstaCon)
     instaItemCon.addEventListener('click', moveInstaItem);
+
+    // Content5 - 지하철 광고판
+    const replyList = ['오늘 누구 생일임?',
+                       'ㅅㅊㅅㅊ',
+                       '저 사람 누구임?',
+                       '생일 축하함',
+                       '박**님 1000원 후원 감사합니다',
+                       '지하철 왜 안오냐',
+                       '생일선물',
+                       'Happyyy랄랄라',
+                       'BirthDay',
+                       '생일 축하',
+                       'G-DRAGON',
+                       '고생 ^오^',
+                       '뿜샤카라카',
+                       '와 전광판 보소'];
+    const colorList = ['red', 'blue', 'crimson', 'orange', 'yellow', 'greenyellow']
+
+    function createReply(){
+        if(replyCon.childNodes.length > 15){
+            clearInterval(createReply);
+        }
+        const replyNum = parseInt(Math.random() * 1000) % replyList.length;
+        const colorNum = parseInt(Math.random() * 1000) % colorList.length;
+        const top = parseInt(Math.random() * 1000) % window.innerHeight;
+        const html = '<div class="reply" style="top:'+ top +'; color:'+ colorList[colorNum] +';">' + replyList[replyNum] +'</div>';
+        const elem = document.createElement('div');
+        elem.classList.add('replyItem');
+        elem.style.top = top + 'px';
+        elem.style.color = colorList[colorNum];
+        elem.innerText = replyList[replyNum];
+        replyCon.appendChild(elem);
+    }
+    setInterval(createReply, 3000);
 })()

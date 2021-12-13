@@ -1,3 +1,12 @@
+@keyframes ani-reply{
+    from {
+        left: 100vw;
+    }
+    to {
+        left: -100vw;
+    }
+}
+
 .contentCon {
     position: relative;
     transition-duration: 1s;
@@ -71,28 +80,72 @@
 .contentCon[data-open-index='1'] .contentItem1 {
 }
 .contentCon .contentItem1 {
+}
+.contentItem1 .monaCon {
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.contentCon .contentItem1 .filterLeft,
-.contentCon .contentItem1 .filterRight {
-    width: 50%;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-image: url('/src/images/gallery001.JPG');
-    background-position-y: -22vw;
+    background-image: url('/src/images/mona.png');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 200%;
-    filter: grayscale(50%);
-    transition-duration: 2s;
 }
-.contentCon .contentItem1 .filterLeft{
-    background-position-x: 0vw;
+.contentItem1 .monaCon .monaFrame {
+    position: absolute;
+    width: 30vmax;
+    height: 30vmax;
+    border-radius: 15vmax;
+    margin-top: 15vmax;
+    background: rgba(255, 255, 255, 0.5);
 }
-.contentCon .contentItem1 .filterRight {
-    background-position-x: -50vw;
+.contentItem1 .filterCon {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    top: -100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: 120%;
+    transition-duration: 1s;
 }
-
+.filterCon .filterItem {
+    width: 20vw;
+    height: 20vh;
+    background-image: url('/src/images/gallery001.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 10px solid black;
+    box-sizing: border-box;
+    transition-duration: 0.5s;
+}
+.filterCon .filterConcept1:hover {
+    filter: grayscale(1);
+}
+.filterCon .filterConcept2:hover {
+    filter: hue-rotate(180deg);
+}
+.filterCon .filterConcept3:hover {
+    filter: saturate(300%);
+}
+.filterCon .filterConcept4:hover {
+    filter: contrast(300%);
+}
+.filterCon .filterConcept5:hover {
+    filter: invert(100%);
+}
+@media (min-width: 1000px) {
+    .filterCon .filterItem {
+        background-position-y : -8vh;
+    }
+}
 /* ----- content2 ----- 미끄럼틀 영상 - 유튜브 느낌 */
 .contentCon[data-open-index='2'] .contentItem2 {
 }
@@ -456,4 +509,19 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.contentCon .contentItem5 .replyCon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.replyCon .replyItem {
+    position: absolute;
+    width: 100%;
+    left: 100vw;
+    font-size: 7vmax;
+    font-weight: 900;
+    animation: ani-reply 10s linear infinite;
 }
