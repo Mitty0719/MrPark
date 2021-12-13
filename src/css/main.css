@@ -53,7 +53,7 @@
     }
 }
 
-html {
+html, * {
     cursor: none;
 }
 .mouseCursor {
@@ -67,6 +67,7 @@ html {
     z-index: 999;
     animation: mouseCursor-ani 1.5s infinite alternate ease-in-out;
     pointer-events: none;
+    transition: background-color 1s linear;
 }
 
 .logoBox {

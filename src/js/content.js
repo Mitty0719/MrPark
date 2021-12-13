@@ -85,6 +85,14 @@
     galleryGround.addEventListener( 'click', showContent );
     closeBox.addEventListener('click', closeContent)
     
+    // clickEvent 위치 mouseCurosr 색생변경
+    changeCursorPointer(closeBox);
+    changeCursorPointer(monaFrame);
+    changeCursorPointer(commentSubmit);
+    changeCursorPointer(commentCancel);
+    changeCursorPointer(instaItemCon);
+    changeCursorPointer(youtubeVideo);
+    
     // Content 1 - HalfFilter
     // filterLeft.addEventListener('mouseover', setHalfFilter);
     // filterRight.addEventListener('mouseover', setHalfFilter);
@@ -276,4 +284,5 @@
         replyCnt++;
     }
     let replyConst = setInterval(createReply, 3000);
+
 })()
