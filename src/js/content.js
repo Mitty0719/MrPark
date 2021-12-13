@@ -20,7 +20,7 @@
     const ballList = [];
 
     const contentItem4 = document.querySelector('.contentItem4');
-    const instaCon = document.querySelector('.instaCon');
+    const instaBox = document.querySelector('.instaBox');
     const instaItemCon = document.querySelector('.instaItemCon');
     const instaItems = document.querySelector('.instaItems');
     const instaItemList = document.querySelectorAll('.instaItem');
@@ -197,7 +197,7 @@
     // });
     let instaX = 0, instaY = 0;
     let instaCurrentX = 0, instaCurrentY = 0;
-    let instaSpeed = 0.005;
+    let instaSpeed = 0.015;
     function rotateInstaCon (e) {
         instaX = e.clientX - window.innerWidth / 2;
         instaY = e.clientY - window.innerHeight / 2;
@@ -205,7 +205,7 @@
     function rotateInstaConRaf () {
         instaCurrentX += (instaX - instaCurrentX) * instaSpeed;
         instaCurrentY += (instaY - instaCurrentY) * instaSpeed;
-        instaCon.style.transform = 'rotateY(' + instaCurrentX / 20 + 'deg) rotateX(' + instaCurrentY / 20 + 'deg)';
+        instaBox.style.transform = 'rotateX(' + -(instaCurrentY / 20) + 'deg) rotateY(' + (instaCurrentX / 20) + 'deg)';
         window.requestAnimationFrame(rotateInstaConRaf);;
     }
     function moveInstaItem (e) {
