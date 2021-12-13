@@ -257,21 +257,23 @@
                        '뿜샤카라카',
                        '와 전광판 보소'];
     const colorList = ['red', 'blue', 'crimson', 'orange', 'yellow', 'greenyellow']
-
+    let replyCnt = 0;
     function createReply(){
-        if(replyCon.childNodes.length > 15){
-            clearInterval(createReply);
+        if(replyCon.childNodes.length > replyList.length){
+            clearInterval(replyConst);
+            return;
         }
-        const replyNum = parseInt(Math.random() * 1000) % replyList.length;
+        // const replyNum = parseInt(Math.random() * 1000) % replyList.length;
         const colorNum = parseInt(Math.random() * 1000) % colorList.length;
         const top = parseInt(Math.random() * 1000) % window.innerHeight;
-        const html = '<div class="reply" style="top:'+ top +'; color:'+ colorList[colorNum] +';">' + replyList[replyNum] +'</div>';
         const elem = document.createElement('div');
         elem.classList.add('replyItem');
-        elem.style.top = top + 'px';
+        elem.style.top = (top-30) + 'px';
         elem.style.color = colorList[colorNum];
-        elem.innerText = replyList[replyNum];
+        elem.innerText = replyList[replyCnt];
         replyCon.appendChild(elem);
+
+        replyCnt++;
     }
-    setInterval(createReply, 3000);
+    let replyConst = setInterval(createReply, 3000);
 })()
