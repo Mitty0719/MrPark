@@ -113,6 +113,9 @@
     font-size: 4vmax;
     font-weight: 900;
     line-height: 5vmax;
+    margin-top: 50px;
+    opacity: 0%;
+    transition-duration: 2s;
 }
 .contentItem1 .monaCon .monaDesc h1 span {
     color: crimson;
@@ -121,8 +124,10 @@
     font-size: 1.2vmax;
     line-height: 30px;
     font-weight: 600;
-    margin-top: 3vmax;
+    margin-top: calc(3vmax + 50px);
     color: #222;
+    opacity: 0%;
+    transition-duration: 2s;
 }
 .contentItem1 .monaCon .monaDesc p span {
     font-size: 12px;

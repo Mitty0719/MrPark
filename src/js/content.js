@@ -6,6 +6,8 @@
     const closeBox = document.querySelector('.closeBox');
 
     const monaFrame = document.querySelector('.monaFrame');
+    const monaDescHead = document.querySelector('.monaDesc h1');
+    const monaDescComm = document.querySelector('.monaDesc p');
     const filterCon = document.querySelector('.filterCon');
 
     const contentItem2 = document.querySelector('.contentItem2');
@@ -110,8 +112,23 @@
     function hideFilterCon (e) {
         filterCon.style.top = -100 + 'vh';
         filterCon.style.opacity = 0 + '%';
+
+        monaDescHead.style.marginTop = '50px';
+        monaDescHead.style.opacity = 0 + '%';
+
+        monaDescComm.style.marginTop = 'calc(3vmax + 50px)';
+        monaDescComm.style.opacity = 0 + '%';
     };
     function releaseContent1 () {
+        setTimeout(function(){
+            monaDescHead.style.marginTop = 0;
+            monaDescHead.style.opacity = 100 + '%';
+        }, 2000);
+        setTimeout(function(){
+            monaDescComm.style.marginTop = '3vmax';
+            monaDescComm.style.opacity = 100 + '%';
+        }, 3000);
+
         monaFrame.addEventListener('click', showFilterCon);
     };
     function unreleaseContent1 () {
