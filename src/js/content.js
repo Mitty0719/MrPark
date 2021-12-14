@@ -254,24 +254,50 @@
         instaBox.style.transform = 'rotateX(' + -(instaCurrentY / 20) + 'deg) rotateY(' + (instaCurrentX / 20) + 'deg)';
         content4TimeId = window.requestAnimationFrame(rotateInstaConRaf);;
     }
-    function moveInstaItem (e) {
-        instaItemIndex++;
-        if(instaItemIndex >= instaItemMaxIndex) {
-            instaItemIndex = 0;
-            stopVideo(instaVideo);
+    function moveInstaItemToRight () {
+        if(instaItemIndex >= instaItemMaxIndex-1) {
+            return;
         }
+        instaItemIndex++;
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     };
+    function moveInstaItemToLeft () {
+        if(instaItemIndex == instaItemMaxIndex-1){
+            stopVideo(instaVideo);
+        }
+        instaItemIndex--;
+        if(instaItemIndex < 0) {
+            instaItemIndex = 0;
+        }
+        instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
+    }
     function resetInstaIndex () {
         instaItemIndex = 0;
         stopVideo(instaVideo);
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     };
+    let instaDragStartPoint = -1;
+    let instaDragEndPoint = -1;
+    function setInstaDragStartPoint (e) {
+        instaDragStartPoint = e.clientX;
+    }
+    function setInstaDragEndPoint (e) {
+        instaDragEndPoint = e.clientX;
+        if(instaDragEndPoint < instaDragStartPoint){
+            moveInstaItemToRight();
+            return;
+        }
+        if(instaDragEndPoint > instaDragStartPoint){
+            moveInstaItemToLeft();
+            return;
+        }
+    }
     function releaseContent4 () {
-        
         rotateInstaConRaf();
         contentItem4.addEventListener('mousemove', rotateInstaCon)
-        instaItemCon.addEventListener('click', moveInstaItem);
+        // instaItemCon.addEventListener('click', moveInstaItem);
+        instaItemCon.addEventListener('mousedown', setInstaDragStartPoint);
+        instaItemCon.addEventListener('mouseup', setInstaDragEndPoint)
     }
     function unreleaseContent4 () {
         window.cancelAnimationFrame(content4TimeId);
