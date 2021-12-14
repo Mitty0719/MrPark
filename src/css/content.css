@@ -488,7 +488,13 @@
     /* width: 100%; */
     height: 100%;
 }
-
+.instaHeart {
+    position: absolute;
+    top: 34.4vmax;
+    left: 1.5vmax;
+    width: 2.4vmax;
+    height: 1.8vmax;
+}
 .instaNumbers {
     position: absolute;
     display: flex;

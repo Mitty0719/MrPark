@@ -31,6 +31,7 @@
     const instaItems = document.querySelector('.instaItems');
     const instaItemList = document.querySelectorAll('.instaItem');
     const instaVideo = document.querySelector('.instaVideo');
+    const instaHeart = document.querySelector('.instaHeart');
     const instaNumberList = document.querySelectorAll('.instaNumber');
     let instaItemIndex = 0;
     let instaItemMaxIndex = document.querySelectorAll('.instaItem').length;
@@ -347,19 +348,29 @@
             return;
         }
     }
+    function changeHeartState () {
+        if(this.src.includes('heart')) {
+            this.src = 'images/insta_blank.png';
+        } else {
+            this.src = 'images/insta_heart.png';
+        }
+    }
     function releaseContent4 () {
         rotateInstaConRaf();
-        contentItem4.addEventListener('mousemove', rotateInstaCon)
+        contentItem4.addEventListener('mousemove', rotateInstaCon);
         // instaItemCon.addEventListener('click', moveInstaItem);
         instaItemCon.addEventListener('mousedown', setInstaDragStartPoint);
-        instaItemCon.addEventListener('mouseup', setInstaDragEndPoint)
+        instaItemCon.addEventListener('mouseup', setInstaDragEndPoint);
+        instaHeart.addEventListener('click', changeHeartState);
+        
     }
     function unreleaseContent4 () {
         window.cancelAnimationFrame(content4TimeId);
-        contentItem4.removeEventListener('mousemove', rotateInstaCon)
+        contentItem4.removeEventListener('mousemove', rotateInstaCon);
         // instaItemCon.removeEventListener('click', moveInstaItem);
         instaItemCon.removeEventListener('mousedown', setInstaDragStartPoint);
-        instaItemCon.removeEventListener('mouseup', setInstaDragEndPoint)
+        instaItemCon.removeEventListener('mouseup', setInstaDragEndPoint);
+        instaHeart.removeEventListener('click', changeHeartState);
 
         // instaItem Index 초기화
         resetInstaIndex();
