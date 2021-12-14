@@ -432,10 +432,6 @@
 /* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
 .contentCon[data-open-index='3'] .contentItem3 {
 }
-.contentCon .contentItem3 .canvasBall{
-    width: 100vw;
-    height: 100vh;
-}
 /* ----- content4 ----- 도넛 먹방 - 인스타 라이브 */
 .contentCon[data-open-index='4'] .contentItem4 {
 }
