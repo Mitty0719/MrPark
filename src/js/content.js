@@ -86,6 +86,7 @@
     changeCursorPointer(commentCancel);
     changeCursorPointer(instaItemCon);
     changeCursorPointer(youtubeVideo);
+    changeCursorPointer(canvasBall);
     
     // Content 1 - HalfFilter
     // filterLeft.addEventListener('mouseover', setHalfFilter);
@@ -104,9 +105,11 @@
     // };
     function showFilterCon (e) {
         filterCon.style.top = 0;
+        filterCon.style.opacity = 100 + '%';
     };
     function hideFilterCon (e) {
         filterCon.style.top = -100 + 'vh';
+        filterCon.style.opacity = 0 + '%';
     };
     function releaseContent1 () {
         monaFrame.addEventListener('click', showFilterCon);

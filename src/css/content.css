@@ -101,7 +101,32 @@
     height: 30vmax;
     border-radius: 15vmax;
     margin-top: 15vmax;
-    background: rgba(255, 255, 255, 0.5);
+}
+.contentItem1 .monaCon .monaDesc {
+    position: absolute;
+    top: 10vmax;
+    left: 5vmax;
+    width: 30vmax;
+    color: black;
+}
+.contentItem1 .monaCon .monaDesc h1 {
+    font-size: 4vmax;
+    font-weight: 900;
+    line-height: 5vmax;
+}
+.contentItem1 .monaCon .monaDesc h1 span {
+    color: crimson;
+}
+.contentItem1 .monaCon .monaDesc p {
+    font-size: 1.2vmax;
+    line-height: 30px;
+    font-weight: 600;
+    margin-top: 3vmax;
+    color: #222;
+}
+.contentItem1 .monaCon .monaDesc p span {
+    font-size: 12px;
+    font-weight: 0;
 }
 .contentItem1 .filterCon {
     position: absolute;
@@ -114,6 +139,7 @@
     height: 100vh;
     background-size: 120%;
     transition-duration: 1s;
+    opacity: 0%;
 }
 .filterCon .filterItem {
     width: 20vw;
