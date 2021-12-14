@@ -13,6 +13,7 @@
     const contentItem2 = document.querySelector('.contentItem2');
     const backImage = document.querySelector('.contentItem2 .backImage');
     const youtubeVideo = document.querySelector('.youtubeVideo video');
+    const positive = document.querySelector('.positive');
     const subscribeBtn = document.querySelector('.subscribeBtn');
     const commentList = document.querySelector('.commentList');
     const commentText = document.querySelector('.commentText');
@@ -145,6 +146,14 @@
         youtubeX = e.clientX - window.innerWidth / 2;
         youtubeY = e.clientY - window.innerHeight / 2;
     };
+    function changePositiveState (e) {
+        let likeImg = this.children[0];
+        if(likeImg.src.includes('active')){
+            likeImg.src = 'images/youtube_like.png';
+        } else {
+            likeImg.src = 'images/youtube_like_active.png';
+        }
+    }
     function changeSubscribeState (e) {
         if(this.classList.contains('subscriber')) {
             this.classList.remove('subscriber');
@@ -153,7 +162,7 @@
             this.classList.add('subscriber');
             this.innerText = '구독중';
         }
-    }
+    };
     function submitComment (e) {
         const text = commentText.value;
 
@@ -201,6 +210,7 @@
         moveBackgroundRaf();
         
         contentItem2.addEventListener('mousemove', moveBackground);
+        positive.addEventListener('click', changePositiveState);
         subscribeBtn.addEventListener('click', changeSubscribeState);
         commentText.addEventListener('keyup', activeCommentSubmit);
         commentCancel.addEventListener('click', cancelComment);
@@ -210,6 +220,7 @@
         window.cancelAnimationFrame(content2TimeId);
 
         contentItem2.removeEventListener('mousemove', moveBackground);
+        positive.removeEventListener('click', changePositiveState);
         subscribeBtn.removeEventListener('click', changeSubscribeState);
         commentText.removeEventListener('keyup', activeCommentSubmit);
         commentCancel.removeEventListener('click', cancelComment);
