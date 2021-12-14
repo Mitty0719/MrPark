@@ -11,6 +11,7 @@
     const contentItem2 = document.querySelector('.contentItem2');
     const backImage = document.querySelector('.contentItem2 .backImage');
     const youtubeVideo = document.querySelector('.youtubeVideo video');
+    const subscribeBtn = document.querySelector('.subscribeBtn');
     const commentList = document.querySelector('.commentList');
     const commentText = document.querySelector('.commentText');
     const commentSubmit = document.querySelector('.commentSubmit');
@@ -27,6 +28,7 @@
     const instaItems = document.querySelector('.instaItems');
     const instaItemList = document.querySelectorAll('.instaItem');
     const instaVideo = document.querySelector('.instaVideo');
+    const instaNumberList = document.querySelectorAll('.instaNumber');
     let instaItemIndex = 0;
     let instaItemMaxIndex = document.querySelectorAll('.instaItem').length;
     let instaItemWidth = parseInt(window.getComputedStyle(instaItems).getPropertyValue('width'));
@@ -79,6 +81,7 @@
     // clickEvent 위치 mouseCurosr 색생변경
     changeCursorPointer(closeBox);
     changeCursorPointer(monaFrame);
+    changeCursorPointer(subscribeBtn);
     changeCursorPointer(commentSubmit);
     changeCursorPointer(commentCancel);
     changeCursorPointer(instaItemCon);
@@ -122,6 +125,15 @@
         youtubeX = e.clientX - window.innerWidth / 2;
         youtubeY = e.clientY - window.innerHeight / 2;
     };
+    function changeSubscribeState (e) {
+        if(this.classList.contains('subscriber')) {
+            this.classList.remove('subscriber');
+            this.innerText = '구독';
+        } else {
+            this.classList.add('subscriber');
+            this.innerText = '구독중';
+        }
+    }
     function submitComment (e) {
         const text = commentText.value;
 
@@ -169,6 +181,7 @@
         moveBackgroundRaf();
         
         contentItem2.addEventListener('mousemove', moveBackground);
+        subscribeBtn.addEventListener('click', changeSubscribeState);
         commentText.addEventListener('keyup', activeCommentSubmit);
         commentCancel.addEventListener('click', cancelComment);
         commentSubmit.addEventListener('click', submitComment);
@@ -177,6 +190,7 @@
         window.cancelAnimationFrame(content2TimeId);
 
         contentItem2.removeEventListener('mousemove', moveBackground);
+        subscribeBtn.removeEventListener('click', changeSubscribeState);
         commentText.removeEventListener('keyup', activeCommentSubmit);
         commentCancel.removeEventListener('click', cancelComment);
         commentSubmit.removeEventListener('click', submitComment);
@@ -258,17 +272,22 @@
         if(instaItemIndex >= instaItemMaxIndex-1) {
             return;
         }
+        instaNumberList[instaItemIndex].classList.remove('numberSelected');
         instaItemIndex++;
+        instaNumberList[instaItemIndex].classList.add('numberSelected');
+
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     };
     function moveInstaItemToLeft () {
         if(instaItemIndex == instaItemMaxIndex-1){
             stopVideo(instaVideo);
         }
-        instaItemIndex--;
-        if(instaItemIndex < 0) {
-            instaItemIndex = 0;
+        if(instaItemIndex <= 0) {
+            return;
         }
+        instaNumberList[instaItemIndex].classList.remove('numberSelected');
+        instaItemIndex--;
+        instaNumberList[instaItemIndex].classList.add('numberSelected');
         instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
     }
     function resetInstaIndex () {
@@ -302,7 +321,9 @@
     function unreleaseContent4 () {
         window.cancelAnimationFrame(content4TimeId);
         contentItem4.removeEventListener('mousemove', rotateInstaCon)
-        instaItemCon.removeEventListener('click', moveInstaItem);
+        // instaItemCon.removeEventListener('click', moveInstaItem);
+        instaItemCon.removeEventListener('mousedown', setInstaDragStartPoint);
+        instaItemCon.removeEventListener('mouseup', setInstaDragEndPoint)
 
         // instaItem Index 초기화
         resetInstaIndex();
