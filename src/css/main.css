@@ -174,3 +174,54 @@ html, * {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+/* loadCon */
+.loadCon {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    transition: 2s;
+}
+.loadCon .projectName {
+    font-size: 80px;
+    font-weight: 900;
+    font-family: 'vogue', sans-serif;
+    color: #f8c460;
+}
+.loadCon .projectDesc {
+    padding: 50px 0;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+    color: white;
+}
+.closeLoad {
+    color: #0a6a56;
+    font-size: 20px;
+    white-space: nowrap;
+}
+.loadCon .progressBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.loadCon .progressBar .progress {
+    width: 0%;
+    background: red;
+    transition: 5s;
+}
+.loadCon .progressBar .progressRed {
+    height: 65px;
+    background: #a82b11;
+}
+.loadCon .progressBar .progressGreen {
+    height: 50px;
+    background: #0a6a56;
+}

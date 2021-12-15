@@ -1,5 +1,9 @@
 (function(){
     'use strict'
+    const loadCon = document.querySelector('.loadCon');
+    const progressList = document.querySelectorAll('.progress');
+    const closeLoad = document.querySelector('.closeLoad');
+
     const rowSpace = document.querySelector('.rowSpace');
     const rows = document.querySelectorAll('.row');
     const galleryGround = document.querySelector('.galleryGround');
@@ -33,6 +37,7 @@
 
     // mouse 색상변경
     changeCursorPointer(galleryGround);
+    changeCursorPointer(closeLoad);
 
     // row설정
     rows.forEach(function (row, index) {
@@ -70,4 +75,12 @@
 
     rowSpace.addEventListener( 'mouseover', moveWords );
 
+    // loadCon 설정
+    progressList.forEach( function(progress, index){
+        setTimeout( () => progress.style.width = '100%', 1000*index);
+    });
+    closeLoad.addEventListener('click', function(){
+        loadCon.style.opacity = '0%';
+        setTimeout( () => loadCon.style.display = 'none', 2000);
+    });
 })()
