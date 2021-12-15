@@ -192,6 +192,7 @@ html, * {
     font-size: 80px;
     font-weight: 900;
     font-family: 'Vogue', sans-serif;
+    text-align: center;
     color: #f8c460;
 }
 .loadCon .projectDesc {
