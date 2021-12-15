@@ -14,6 +14,7 @@
     const backImage = document.querySelector('.contentItem2 .backImage');
     const youtubeVideo = document.querySelector('.youtubeVideo video');
     const positive = document.querySelector('.positive');
+    const negative = document.querySelector('.negative');
     const subscribeBtn = document.querySelector('.subscribeBtn');
     const commentList = document.querySelector('.commentList');
     const commentText = document.querySelector('.commentText');
@@ -91,6 +92,8 @@
     changeCursorPointer(instaItemCon);
     changeCursorPointer(youtubeVideo);
     changeCursorPointer(canvasBall);
+    changeCursorPointer(positive);
+    changeCursorPointer(instaHeart);
     
     // Content 1 - HalfFilter
     // filterLeft.addEventListener('mouseover', setHalfFilter);
@@ -125,11 +128,11 @@
         setTimeout(function(){
             monaDescHead.style.marginTop = 0;
             monaDescHead.style.opacity = 100 + '%';
-        }, 2000);
+        }, 1000);
         setTimeout(function(){
             monaDescComm.style.marginTop = '3vmax';
             monaDescComm.style.opacity = 100 + '%';
-        }, 3000);
+        }, 2000);
 
         monaFrame.addEventListener('click', showFilterCon);
     };
@@ -148,6 +151,11 @@
         youtubeY = e.clientY - window.innerHeight / 2;
     };
     function changePositiveState (e) {
+        if(this.classList.contains('positive')){
+            negative.children[0].src = 'images/youtube_like.png';
+        } else {
+            positive.children[0].src = 'images/youtube_like.png';
+        }
         let likeImg = this.children[0];
         if(likeImg.src.includes('active')){
             likeImg.src = 'images/youtube_like.png';
@@ -212,6 +220,7 @@
         
         contentItem2.addEventListener('mousemove', moveBackground);
         positive.addEventListener('click', changePositiveState);
+        negative.addEventListener('click', changePositiveState);
         subscribeBtn.addEventListener('click', changeSubscribeState);
         commentText.addEventListener('keyup', activeCommentSubmit);
         commentCancel.addEventListener('click', cancelComment);
@@ -222,6 +231,7 @@
 
         contentItem2.removeEventListener('mousemove', moveBackground);
         positive.removeEventListener('click', changePositiveState);
+        negative.removeEventListener('click', changePositiveState);
         subscribeBtn.removeEventListener('click', changeSubscribeState);
         commentText.removeEventListener('keyup', activeCommentSubmit);
         commentCancel.removeEventListener('click', cancelComment);
@@ -245,7 +255,7 @@
     function animateBall () { // 매 프레임마다 벌어지는 일들
         ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.fillRect(0, 0, canvasBall.width, canvasBall.height); // 캔버스 전체를 색칠해서 내용 지움
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, canvasBall.width, canvasBall.height);
         ballList.forEach(function(ball){
             ball.update(); // ball1의 정보를 업데이트
             ball.draw(); // ball1 새로 그림
@@ -378,20 +388,20 @@
     }
 
     // Content5 - 지하철 광고판
-    const replyList = ['오늘 누구 생일임?',
+    const replyList = ['누구 생일인가요?',
                        'ㅅㅊㅅㅊ',
-                       '저 사람 누구임?',
-                       '생일 축하함',
+                       '와 광고판 보소',
+                       '생일 축하:D',
                        '박**님 1000원 후원 감사합니다',
                        '지하철 왜 안오냐',
-                       '생일선물',
-                       'Happyyy랄랄라',
-                       'BirthDay',
-                       '생일 축하',
-                       'G-DRAGON',
-                       '고생 ^오^',
-                       '뿜샤카라카',
-                       '와 전광판 보소'];
+                       '멸치액젓',
+                       '12일 지났는데 왜 뒷북이냐',
+                       'BirthDay:D',
+                       '오늘 날씨 맑음',
+                       '<<<٩(๑•̀ㅂ•́)و>>>',
+                       '생각보다 잘만들어짐',
+                       'ヽ(´▽`)ﾉヽ(´▽`)ﾉヽ(´▽`)ﾉ',
+                       'QA: MinWooJung'];
     const colorList = ['red', 'blue', 'crimson', 'orange', 'yellow', 'greenyellow']
     let replyCnt = 0;
     let replyConst;

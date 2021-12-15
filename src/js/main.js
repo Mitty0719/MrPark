@@ -76,8 +76,8 @@
     rowSpace.addEventListener( 'mouseover', moveWords );
 
     // loadCon 설정
-    progressList.forEach( function(progress, index){
-        setTimeout( () => progress.style.width = '100%', 1000*index);
+    progressList.forEach(function(progress, index){
+        setTimeout( () => progress.style.width = '100%', 1000*(index+0.5));
     });
     closeLoad.addEventListener('click', function(){
         loadCon.style.opacity = '0%';

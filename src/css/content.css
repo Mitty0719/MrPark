@@ -109,12 +109,13 @@
     color: black;
 }
 .contentItem1 .monaCon .monaDesc h1 {
-    font-size: 4vmax;
+    font-size: 3.7vmax;
     font-weight: 900;
     line-height: 5vmax;
     margin-top: 50px;
     opacity: 0%;
     transition-duration: 2s;
+    font-family: 'NanumMyeongjo', sans-serif;
 }
 .contentItem1 .monaCon .monaDesc h1 span {
     color: crimson;
