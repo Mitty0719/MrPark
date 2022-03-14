@@ -54,7 +54,7 @@ class App{
         this.currentContent = new Gallery02();
         break;
       case '3':
-        this.currentContent = new Gallery03();
+        this.currentContent = new Gallery03(this.stageWidth, this.stageHeight);
         break;
       case '4':
         this.currentContent = new Gallery04();
