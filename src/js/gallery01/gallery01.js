@@ -1,24 +1,48 @@
 export class Gallery01{
-  constructor(){
+  constructor(stageWidth, stageHeight){
     this.frame = document.querySelector('.monaFrame');
     this.title = document.querySelector('.monaDesc h1');
     this.description = document.querySelector('.monaDesc p');
-    this.filterCon = document.querySelector('.filterCon');
+    this.geometryCon = document.querySelector('.geometryCon');
+    this.geometryItems = [];
+    this.geometryScale = [];
+    this.stageWidth = stageWidth;
+    this.stageHeight = stageHeight;
 
-    monaFrame.addEventListener('click', showFilterCon);
+    this.frame.addEventListener('click', this.showGeometryCon.bind(this));
+    document.addEventListener('mousemove', this.moveGeometryCon.bind(this));
   }
-  showFilterCon (e) {
-    filterCon.style.top = 0;
-    filterCon.style.opacity = 100 + '%';
-  };
-  hideFilterCon (e) {
-    filterCon.style.top = -100 + 'vh';
-    filterCon.style.opacity = 0 + '%';
 
-    this.title.style.marginTop = '50px';
-    this.title.style.opacity = 0 + '%';
+  showGeometryCon(){
+    this.geometryCon.classList.add('activate');
+    this.createGeometryItem(20);
+  }
 
-    this.description.style.marginTop = 'calc(3vmax + 50px)';
-    this.description.style.opacity = 0 + '%';
-  };
+  createGeometryItem(index){
+    let cnt = 0;
+    const createId = setInterval(()=>{
+      if(cnt++ < index){
+        const item = document.createElement('div');
+        const scale = 1.5 / cnt;
+
+        item.classList.add('geometryItem');
+        item.style.transform = `scale(${scale})`;
+        this.geometryCon.appendChild(item);
+        this.geometryItems.push(item);
+        this.geometryScale.push(scale);
+      } else {
+        clearInterval(createId);
+      }
+    }, 200);
+  }
+  moveGeometryCon(e){
+    const x = e.clientX - (this.stageWidth / 2);
+    const y = e.clientY - (this.stageHeight / 2);
+
+    this.geometryItems.forEach((item, index) => {
+      const moveX = x / 2;
+      const moveY = y / 2;
+      item.style.transform = `scale(${this.geometryScale[index]}) translate(${moveX}px, ${moveY}px)`;
+    })
+  }
 }

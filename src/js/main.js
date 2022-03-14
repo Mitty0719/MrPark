@@ -17,7 +17,13 @@ class App{
     this.rowSpace.addEventListener('mouseover', this.moveWords.bind(this));
     this.galleryGround.addEventListener('click', this.showContent.bind(this));
     this.closeBox.addEventListener('click', this.closeContent.bind(this));
+
+    this.resize();
     this.setRow();
+  }
+  resize(){
+    this.stageWidth = window.innerWidth;
+    this.stageHeight = window.innerHeight;
   }
   showContent(e) {
     let elem = e.target;
@@ -32,26 +38,28 @@ class App{
 
     this.contentCon.dataset.state = 'open';
     this.contentCon.dataset.openIndex = this.currentContentIndex;
+
     this.setContent();
   };
   closeContent() {
     this.contentCon.dataset.state = 'close';
+    this.contentCon.dataset.openIndex = 0;
   };
   setContent(){
     switch(this.currentContentIndex){
-      case 1:
-        this.currentContent = new Gallery01();
+      case '1':
+        this.currentContent = new Gallery01(this.stageWidth, this.stageHeight);
         break;
-      case 2:
+      case '2':
         this.currentContent = new Gallery02();
         break;
-      case 3:
+      case '3':
         this.currentContent = new Gallery03();
         break;
-      case 4:
+      case '4':
         this.currentContent = new Gallery04();
         break;
-      case 5:
+      case '5':
         this.currentContent = new Gallery05();
         break;
     }

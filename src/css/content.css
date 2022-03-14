@@ -164,58 +164,32 @@
   font-weight: 0;
 }
 
-.contentItem1 .filterCon {
+.geometryCon {
   position: absolute;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  top: -100vh;
+  justify-content: center;
+  align-items: center;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-size: 120%;
+  transform: translate(-100%);
   transition-duration: 1s;
-  opacity: 0%;
+  background: #222;
 }
-
-.filterCon .filterItem {
-  width: 20vw;
-  height: 20vh;
-  background-image: url('../images/gallery001.JPG');
+.geometryCon.activate {
+  transform: translate(0%);
+}
+.geometryItem {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  filter: invert(1);
+  background-image: url('../images/geometry.png');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  border: 10px solid black;
-  box-sizing: border-box;
-  transition-duration: 0.5s;
 }
-
-.filterCon .filterConcept1:hover {
-  filter: grayscale(1);
-}
-
-.filterCon .filterConcept2:hover {
-  filter: hue-rotate(180deg);
-}
-
-.filterCon .filterConcept3:hover {
-  filter: saturate(300%);
-}
-
-.filterCon .filterConcept4:hover {
-  filter: contrast(300%);
-}
-
-.filterCon .filterConcept5:hover {
-  filter: invert(100%);
-}
-
-@media (min-width: 1000px) {
-  .filterCon .filterItem {
-    background-position-y: -8vh;
-  }
-}
-
 /* ----- content2 ----- 미끄럼틀 영상 - 유튜브 느낌 */
 .contentCon[data-open-index='2'] .contentItem2 {}
 
