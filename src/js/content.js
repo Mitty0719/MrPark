@@ -1,5 +1,3 @@
-// const { ManagedBlockchain } = require("aws-sdk");
-
 (function(){
     const galleryGround = document.querySelector('.galleryGround');
     const contentCon = document.querySelector('.contentCon');
@@ -95,21 +93,6 @@
     changeCursorPointer(positive);
     changeCursorPointer(instaHeart);
     
-    // Content 1 - HalfFilter
-    // filterLeft.addEventListener('mouseover', setHalfFilter);
-    // filterRight.addEventListener('mouseover', setHalfFilter);
-    // function setRandomFilter (e) {
-    //     const under100 = parseInt(Math.random() * 1000 % 100);
-    //     const under200 = parseInt(Math.random() * 1000 % 300 + 50);
-    //     const degree = parseInt(Math.random() * 1000 % 180);
-
-    //     let contrast = 'contrast(' + under200 + '%) ';
-    //     let hueRotate = 'hue-rotate(' + degree + 'deg) ';
-    //     let invert = 'invert(' + under100 + '%) ';
-    //     let saturate = 'saturate(' + under200 + '%) ';
-
-    //     this.style.filter = contrast + hueRotate + saturate;
-    // };
     function showFilterCon (e) {
         filterCon.style.top = 0;
         filterCon.style.opacity = 100 + '%';
@@ -279,28 +262,7 @@
             ballList.length = 0;
         }, 1000);
     }
-
-    // Content 4 - Instagram
-    // video 태그 drag 이벤트 안먹어서 click으로 수정
-    // let mouseDownXPos;
-    // let mouseUpXPos;
-    // instaItemCon.addEventListener('dragstart', function(e){
-    //     mouseDownXPos = e.pageX;
-    // });
-    // instaItems.addEventListener('drag', function(e){
-    //     instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + (mouseDownXPos - e.pageX) + 'px';
-    // });
-    // instaItemCon.addEventListener('dragend', function(e){
-    //     console.log(e.target);
-    //     mouseUpXPos = e.pageX;
-    //     if (mouseDownXPos > mouseUpXPos) {
-    //         instaItemIndex++;
-    //     }
-    //     else if (mouseDownXPos < mouseUpXPos) {
-    //         instaItemIndex--;
-    //     }
-    //     instaItems.style.left = '-' + (instaItemWidth * instaItemIndex) + 'px';
-    // });
+    
     let instaX = 0, instaY = 0;
     let instaCurrentX = 0, instaCurrentY = 0;
     let instaSpeed = 0.015;
