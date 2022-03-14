@@ -1,12 +1,60 @@
+import { Word } from "./word.js";
+import { Gallery01 } from "./gallery01/gallery01.js";
+import { Gallery02 } from "./gallery02/gallery02.js";
+import { Gallery03 } from "./gallery03/gallery03.js";
+import { Gallery04 } from "./gallery04/gallery04.js";
+import { Gallery05 } from "./gallery05/gallery05.js";
+
 class App{
   constructor(){
-    const rowSpace = document.querySelector('.rowSpace');
-    const rows = document.querySelectorAll('.row');
-    const galleryGround = document.querySelector('.galleryGround');
+    this.rowSpace = document.querySelector('.rowSpace');
+    this.rows = document.querySelectorAll('.row');
+    this.galleryGround = document.querySelector('.galleryGround');
+    this.contentCon = document.querySelector('.contentCon');
+    this.closeBox = document.querySelector('.closeBox');
     this.rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
     
-    rowSpace.addEventListener( 'mouseover', this.moveWords );
-    this.setRow(rows);
+    this.rowSpace.addEventListener('mouseover', this.moveWords.bind(this));
+    this.galleryGround.addEventListener('click', this.showContent.bind(this));
+    this.closeBox.addEventListener('click', this.closeContent.bind(this));
+    this.setRow();
+  }
+  showContent(e) {
+    let elem = e.target;
+    while(!elem.classList.contains('galleryImg')){
+      if(elem.nodeName == 'BODY'){
+        elem = null;
+        return;
+      }
+      elem = elem.parentNode;
+    }
+    this.currentContentIndex = elem.dataset.index;
+
+    this.contentCon.dataset.state = 'open';
+    this.contentCon.dataset.openIndex = this.currentContentIndex;
+    this.setContent();
+  };
+  closeContent() {
+    this.contentCon.dataset.state = 'close';
+  };
+  setContent(){
+    switch(this.currentContentIndex){
+      case 1:
+        this.currentContent = new Gallery01();
+        break;
+      case 2:
+        this.currentContent = new Gallery02();
+        break;
+      case 3:
+        this.currentContent = new Gallery03();
+        break;
+      case 4:
+        this.currentContent = new Gallery04();
+        break;
+      case 5:
+        this.currentContent = new Gallery05();
+        break;
+    }
   }
 
   // word effect 설정
@@ -18,8 +66,8 @@ class App{
     };
   }
 
-  setRow(rows){
-    rows.forEach((row, index) => {
+  setRow(){
+    this.rows.forEach((row, index) => {
       if (!row.classList.contains('galleryRow')) {
         new Word(row, this.rowStr[index], index);
         

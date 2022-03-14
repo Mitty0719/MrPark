@@ -54,7 +54,7 @@
 }
 
 html, * {
-    cursor: none;
+    cursor: pointer;
 }
 .mouseCursor {
     position: absolute;

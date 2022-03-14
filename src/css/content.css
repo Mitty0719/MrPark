@@ -1,584 +1,679 @@
-@keyframes ani-reply{
-    from {
-        left: 100vw;
-    }
-    to {
-        left: -100vw;
-    }
+@keyframes ani-reply {
+  from {
+    left: 100vw;
+  }
+
+  to {
+    left: -100vw;
+  }
 }
+
 .contentCon {
-    position: relative;
-    transition-duration: 1s;
-    overflow: hidden;
+  position: relative;
+  transition-duration: 1s;
+  overflow: hidden;
 }
+
 .contentCon[data-state='close'] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 1px;
-    height: 1px;
-    border-radius: 50%;
-    background: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: white;
 }
+
 .contentCon[data-state='open'] {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 255, 255, 1);
-    z-index: 200;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 1);
+  z-index: 200;
 }
+
 .contentCon[data-state='open'] .closeBox {
-    opacity: 100%;
+  opacity: 100%;
 }
-.contentCon[data-state='open'] .closeBox:hover>.closeImg{
-    opacity: 100%;
+
+.contentCon[data-state='open'] .closeBox:hover>.closeImg {
+  opacity: 100%;
 }
+
 .closeBox {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 50%;
-    cursor: none;
-    opacity: 0%;
-    transition-duration: 0.5s;
-    z-index: 200;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  cursor: none;
+  opacity: 0%;
+  transition-duration: 0.5s;
+  z-index: 200;
 }
+
 .closeBox .closeImg {
-    width: 100%;
-    height: 100%;
-    opacity: 0%;
-    transition-duration: 0.5s;
-    filter: invert(100%);
+  width: 100%;
+  height: 100%;
+  opacity: 0%;
+  transition-duration: 0.5s;
+  filter: invert(100%);
 }
+
 .contentItem {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    opacity: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0%;
 }
+
 .contentCon[data-open-index='1'] .contentItem1,
 .contentCon[data-open-index='2'] .contentItem2,
 .contentCon[data-open-index='3'] .contentItem3,
 .contentCon[data-open-index='4'] .contentItem4,
 .contentCon[data-open-index='5'] .contentItem5 {
-    opacity: 100%;
-    z-index: 100;
+  opacity: 100%;
+  z-index: 100;
 }
 
 /* ----- content1 ----- 사진 좌우 나눠서 마우스 올리면 다양한 필터 넣어주기 */
-.contentCon[data-open-index='1'] .contentItem1 {
-}
-.contentCon .contentItem1 {
-}
+.contentCon[data-open-index='1'] .contentItem1 {}
+
+.contentCon .contentItem1 {}
+
 .contentItem1 .monaCon {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/mona.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/mona.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .contentItem1 .monaCon .monaFrame {
-    position: absolute;
-    width: 30vmax;
-    height: 30vmax;
-    border-radius: 15vmax;
-    margin-top: 15vmax;
+  position: absolute;
+  width: 30vmax;
+  height: 30vmax;
+  border-radius: 15vmax;
+  margin-top: 15vmax;
 }
+
 .contentItem1 .monaCon .monaDesc {
-    position: absolute;
-    top: 10vmax;
-    left: 5vmax;
-    width: 30vmax;
-    color: black;
+  position: absolute;
+  top: 10vmax;
+  left: 5vmax;
+  width: 30vmax;
+  color: black;
 }
+
 .contentItem1 .monaCon .monaDesc h1 {
-    font-size: 3.7vmax;
-    font-weight: 900;
-    line-height: 5vmax;
-    margin-top: 50px;
-    opacity: 0%;
-    transition-duration: 2s;
-    font-family: 'NanumMyeongjo', sans-serif;
+  font-size: 3.7vmax;
+  font-weight: 900;
+  line-height: 5vmax;
+  margin-top: 50px;
+  opacity: 0%;
+  transform: translateY(50%);
+  transition-duration: 2s;
+  transition-delay: 1s;
+  font-family: 'NanumMyeongjo', sans-serif;
 }
+
+.contentCon[data-open-index='1'] .monaDesc h1 {
+  opacity: 100%;
+  transform: translateY(0);
+}
+
 .contentItem1 .monaCon .monaDesc h1 span {
-    color: crimson;
+  color: crimson;
 }
+
 .contentItem1 .monaCon .monaDesc p {
-    font-size: 1.2vmax;
-    line-height: 30px;
-    font-weight: 600;
-    margin-top: calc(3vmax + 50px);
-    color: #222;
-    opacity: 0%;
-    transition-duration: 2s;
+  font-size: 1.2vmax;
+  line-height: 30px;
+  font-weight: 600;
+  margin-top: calc(3vmax + 50px);
+  color: #222;
+  opacity: 0%;
+  transform: translateY(20%);
+  transition-duration: 2s;
+  transition-delay: 2s;
 }
+.contentCon[data-open-index='1'] .monaDesc p {
+  opacity: 100%;
+  transform: translateY(0);
+}
+
+
 .contentItem1 .monaCon .monaDesc p span {
-    font-size: 12px;
-    font-weight: 0;
+  font-size: 12px;
+  font-weight: 0;
 }
+
 .contentItem1 .filterCon {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    top: -100vh;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: 120%;
-    transition-duration: 1s;
-    opacity: 0%;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  top: -100vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: 120%;
+  transition-duration: 1s;
+  opacity: 0%;
 }
+
 .filterCon .filterItem {
-    width: 20vw;
-    height: 20vh;
-    background-image: url('../images/gallery001.JPG');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 10px solid black;
-    box-sizing: border-box;
-    transition-duration: 0.5s;
+  width: 20vw;
+  height: 20vh;
+  background-image: url('../images/gallery001.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 10px solid black;
+  box-sizing: border-box;
+  transition-duration: 0.5s;
 }
+
 .filterCon .filterConcept1:hover {
-    filter: grayscale(1);
+  filter: grayscale(1);
 }
+
 .filterCon .filterConcept2:hover {
-    filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
 }
+
 .filterCon .filterConcept3:hover {
-    filter: saturate(300%);
+  filter: saturate(300%);
 }
+
 .filterCon .filterConcept4:hover {
-    filter: contrast(300%);
+  filter: contrast(300%);
 }
+
 .filterCon .filterConcept5:hover {
-    filter: invert(100%);
+  filter: invert(100%);
 }
+
 @media (min-width: 1000px) {
-    .filterCon .filterItem {
-        background-position-y : -8vh;
-    }
+  .filterCon .filterItem {
+    background-position-y: -8vh;
+  }
 }
+
 /* ----- content2 ----- 미끄럼틀 영상 - 유튜브 느낌 */
-.contentCon[data-open-index='2'] .contentItem2 {
-}
+.contentCon[data-open-index='2'] .contentItem2 {}
+
 .contentCon .contentItem2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .contentCon .backImage {
-    position: absolute;
-    top: -10vh;
-    left: -10vw;
-    width: 120vw;
-    height: 120vh;
-    background-image: url('../images/youtube_background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: grayscale(1);
-    z-index: -1;
+  position: absolute;
+  top: -10vh;
+  left: -10vw;
+  width: 120vw;
+  height: 120vh;
+  background-image: url('../images/youtube_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  z-index: -1;
 }
+
 .contentItem2 .youtubeCon {
-    width: 60vmax;
-    height: 40vmax;
-    border: 1px solid black;
-    overflow: scroll;
+  width: 60vmax;
+  height: 40vmax;
+  border: 1px solid black;
+  overflow: scroll;
 }
+
 .youtubeHeader {
-    width: 100%;
-    height: 3.5vmax;
-    background: white;
+  width: 100%;
+  height: 3.5vmax;
+  background: white;
 }
+
 .youtubeHeader .youtubeLogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10vmax;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vmax;
+  height: 100%;
 }
+
 .youtubeHeader .youtubeLogo .logo {
-    width: 66%;
-    height: 44%;
-    background-image: url('../images/youtube_logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+  width: 66%;
+  height: 44%;
+  background-image: url('../images/youtube_logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+
 .youtubeVideo {
-    width: 100%;
-    background: white;
+  width: 100%;
+  background: white;
 }
+
 .youtubeVideo hr {
-    width: 95%;
-    margin: 0 0 0 2.5%;
-    border: 1px solid #ddd;
+  width: 95%;
+  margin: 0 0 0 2.5%;
+  border: 1px solid #ddd;
 }
+
 .youtubeVideo .videoCon {
-    width: 100%;
-    height: 30vmax;
-    background: black;
+  width: 100%;
+  height: 30vmax;
+  background: black;
 }
+
 .youtubeVideo .videoCon .video {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
+
 .youtubeVideo .info {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
 }
+
 .youtubeVideo .info .title {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 5vmax;
-    font-size: calc(1vw + 10px);
-    padding-left: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5vmax;
+  font-size: calc(1vw + 10px);
+  padding-left: 20px;
 }
+
 .youtubeVideo .info .visited {
-    display: flex;
-    align-items: center;
-    height: 3vmax;
-    padding-left: 20px;
-    font-size: calc(1vw + 6px);
+  display: flex;
+  align-items: center;
+  height: 3vmax;
+  padding-left: 20px;
+  font-size: calc(1vw + 6px);
 }
+
 .youtubeVideo .info .likeBox {
-    display: flex;
-    align-items: center;
-    height: 3vmax;
+  display: flex;
+  align-items: center;
+  height: 3vmax;
 }
+
 .youtubeVideo .info .likeBox li {
-    display: flex;
-    align-items: center;
-    width: 8.5vmax;
-    max-width: 100px;
-    font-size: calc(0.8vw + 6px);
+  display: flex;
+  align-items: center;
+  width: 8.5vmax;
+  max-width: 100px;
+  font-size: calc(0.8vw + 6px);
 }
+
 .youtubeVideo .info .likeBox li img {
-    width: calc(0.8vw + 6px);
-    height: calc(0.8vw + 6px);
-    margin-right: 10px;
+  width: calc(0.8vw + 6px);
+  height: calc(0.8vw + 6px);
+  margin-right: 10px;
 }
+
 .youtubeVideo .channel {
-    display: flex;
-    width: 100%;
-    height: 5vmax;
+  display: flex;
+  width: 100%;
+  height: 5vmax;
 }
+
 .youtubeVideo .channel .channelImg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    padding-left: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  padding-left: 2.5%;
 }
+
 .youtubeVideo .channel .channelImg figure {
-    width: 3.6vmax;
-    height: 3.6vmax;
-    min-width: 30px;
-    min-height: 30px;
-    border-radius: 50%;
-    background-image: url('../images/channelImg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+  width: 3.6vmax;
+  height: 3.6vmax;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 50%;
+  background-image: url('../images/channelImg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
+
 .youtubeVideo .channel .channelName {
-    display: flex;
-    align-items: center;
-    width: 75%;
-    padding-left: 10px;
-    font-size: calc(0.8vw + 8px);
-    font-weight: 600;
+  display: flex;
+  align-items: center;
+  width: 75%;
+  padding-left: 10px;
+  font-size: calc(0.8vw + 8px);
+  font-weight: 600;
 }
+
 .youtubeVideo .channel .channelSub {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
 }
+
 .youtubeVideo .channel .channelSub .subscribeBtn {
-    width: 5.2vw;
-    height: 2.8vw;
-    min-width: 52px;
-    min-height: 28px;
-    border: none;
-    background: crimson;
-    color: white;
+  width: 5.2vw;
+  height: 2.8vw;
+  min-width: 52px;
+  min-height: 28px;
+  border: none;
+  background: crimson;
+  color: white;
 }
+
 .youtubeVideo .channel .channelSub .subscriber {
-    background: #eee;
-    color: #aaa;
+  background: #eee;
+  color: #aaa;
 }
 
 .youtubeAnother {
-    display: none;
+  display: none;
 }
+
 .youtubeComment {
-    width: 100%;
-    background: white;
+  width: 100%;
+  background: white;
 }
+
 .youtubeComment .commentList {
-    width: 95%;
-    margin-left: 2.5%;
+  width: 95%;
+  margin-left: 2.5%;
 }
+
 .youtubeComment .commentList .commentInput {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 7vmax;
-    min-height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 7vmax;
+  min-height: 100px;
 }
+
 .commentList .commentInput .commentText {
-    width: 90%;
-    height: 1.5vmax;
-    font-size: 16px;
-    border: none;
-    border-bottom: 3px solid #ddd;
-    margin-bottom: 1.5vmax;
+  width: 90%;
+  height: 1.5vmax;
+  font-size: 16px;
+  border: none;
+  border-bottom: 3px solid #ddd;
+  margin-bottom: 1.5vmax;
 }
+
 .commentList .commentInput .inputButtons {
-    position: absolute;
-    display: flex;
-    right: 0;
-    bottom: 0;
-    gap: 10px;
+  position: absolute;
+  display: flex;
+  right: 0;
+  bottom: 0;
+  gap: 10px;
 }
+
 .commentSubmit,
-.commentCancel{
-    width: 4.4vmax;
-    height: 2.2vmax;
-    min-width: 66px;
-    min-height: 33px;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    border-radius: none;
+.commentCancel {
+  width: 4.4vmax;
+  height: 2.2vmax;
+  min-width: 66px;
+  min-height: 33px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: none;
 }
-.commentSubmit{
-    color: #aaa;
-    background-color: #eee;
+
+.commentSubmit {
+  color: #aaa;
+  background-color: #eee;
 }
-.activeSubmit{
-    color: white;
-    background-color: dodgerblue;
+
+.activeSubmit {
+  color: white;
+  background-color: dodgerblue;
 }
-.commentCancel{
-    color: #888;
-    background-color: white;
+
+.commentCancel {
+  color: #888;
+  background-color: white;
 }
 
 .youtubeComment .commentList .commentItem {
-    display: flex;
-    width: 100%;
-    height: 5vmax;
-    min-height: 60px;
+  display: flex;
+  width: 100%;
+  height: 5vmax;
+  min-height: 60px;
 }
+
 .commentList .commentInput .commentImageCon,
 .commentList .commentItem .commentImageCon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 10%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
 }
+
 .commentImageCon img {
-    width: 3.4vmax;
-    height: 3.4vmax;
+  width: 3.4vmax;
+  height: 3.4vmax;
 }
+
 .commentList .commentItem .commentWordCon {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    flex-direction: column;
-    width: 90%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
 }
+
 .commentWordCon .nickname {
-    height: 1.7vmax;
-    line-height: 1.7vmax;
-    color: #888;
+  height: 1.7vmax;
+  line-height: 1.7vmax;
+  color: #888;
 }
-.commentWordCon .nickname #commnetName{
-    font-weight: 600;
-    color: #000;
+
+.commentWordCon .nickname #commnetName {
+  font-weight: 600;
+  color: #000;
 }
+
 .commentWordCon .commentWord {
-    height: 1.7vmax;
-    line-height: 1.7vmax;
+  height: 1.7vmax;
+  line-height: 1.7vmax;
 }
 
 
 /* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
-.contentCon[data-open-index='3'] .contentItem3 {
-}
+.contentCon[data-open-index='3'] .contentItem3 {}
+
 /* ----- content4 ----- 도넛 먹방 - 인스타 라이브 */
-.contentCon[data-open-index='4'] .contentItem4 {
-}
+.contentCon[data-open-index='4'] .contentItem4 {}
+
 .contentCon .contentItem4 {
-    background: dodgerblue;
-    perspective: 3000px;
+  background: dodgerblue;
+  perspective: 3000px;
 }
+
 .instaBox {
-    position: absolute;
-    top: calc(50% - 22.5vmax);
-    left: calc(50% - 14vmax);
-    width: 28vmax;
-    height: 45vmax;
-    transform-style: preserve-3d;
+  position: absolute;
+  top: calc(50% - 22.5vmax);
+  left: calc(50% - 14vmax);
+  width: 28vmax;
+  height: 45vmax;
+  transform-style: preserve-3d;
 }
+
 .instaCon {
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/instagram_frame.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/instagram_frame.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform-style: preserve-3d;
 }
+
 .instaCon .instaItemCon {
-    position: absolute;
-    top: 7.2vmax;
-    left: 0.9vmax;
-    width: 26.2vmax;
-    height: 26.5vmax;
-    overflow: hidden;
+  position: absolute;
+  top: 7.2vmax;
+  left: 0.9vmax;
+  width: 26.2vmax;
+  height: 26.5vmax;
+  overflow: hidden;
 }
+
 .instaCon .instaItemCon .instaItems {
-    display: inline-flex;
-    position: absolute;
-    flex-wrap: wrap;
-    flex-direction: column;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: 1s;
+  display: inline-flex;
+  position: absolute;
+  flex-wrap: wrap;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
 }
+
 .instaCon .instaItems .instaItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: black;
 }
+
 .instaItem img,
 .instaItem video {
-    /* width: 100%; */
-    height: 100%;
+  /* width: 100%; */
+  height: 100%;
 }
+
 .instaHeart {
-    position: absolute;
-    top: 34.4vmax;
-    left: 1.5vmax;
-    width: 2.4vmax;
-    height: 1.8vmax;
+  position: absolute;
+  top: 34.4vmax;
+  left: 1.5vmax;
+  width: 2.4vmax;
+  height: 1.8vmax;
 }
+
 .instaNumbers {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    top: 34.5vmax;
-    left: 12vmax;
-    width: 4vmax;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  top: 34.5vmax;
+  left: 12vmax;
+  width: 4vmax;
 }
+
 .instaNumber {
-    width: 5px;
-    height: 5px;
-    border-radius: 2.5px;
-    background: #aaa;
+  width: 5px;
+  height: 5px;
+  border-radius: 2.5px;
+  background: #aaa;
 }
+
 .numberSelected {
-    background: dodgerblue;
+  background: dodgerblue;
 }
 
 /* 인스타 3d 박스 형태 */
 .instaShape {
-    position: absolute;
-    background: #fff;
-    border: 1px solid black;
+  position: absolute;
+  background: #fff;
+  border: 1px solid black;
 }
+
 .instaFront {
-    position: absolute;
+  position: absolute;
 }
+
 .instaTop {
-    top: 0;
-    width: 100%;
-    height: 50px;
-    transform: rotateX(-90deg);
-    transform-origin: top;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  transform: rotateX(-90deg);
+  transform-origin: top;
 }
+
 .instaBottom {
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    transform: rotateX(90deg);
-    transform-origin: bottom;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
 }
+
 .instaLeft {
-    left: 0;
-    width: 50px;
-    height: 100%;
-    transform: rotateY(90deg);
-    transform-origin: left;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  transform: rotateY(90deg);
+  transform-origin: left;
 }
+
 .instaRight {
-    right: 0;
-    width: 50px;
-    height: 100%;
-    transform: rotateY(-90deg);
-    transform-origin: right;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  transform: rotateY(-90deg);
+  transform-origin: right;
 }
+
 .instaBack {
-    width: 100%;
-    height: 100%;
-    transform: translateZ(-50px);
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-50px);
 }
+
 /* ----- content5 ----- 지하철 생일 축하 문구 패러디 */
-.contentCon[data-open-index='5'] .contentItem5 {
-}
+.contentCon[data-open-index='5'] .contentItem5 {}
+
 .contentCon .contentItem5 .campbellsCon {
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/campbells.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/campbells.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 .contentCon .contentItem5 .replyCon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
 .replyCon .replyItem {
-    position: absolute;
-    width: 100%;
-    left: 100vw;
-    font-size: 7vmax;
-    font-weight: 900;
-    animation: ani-reply 10s linear infinite;
+  position: absolute;
+  width: 100%;
+  left: 100vw;
+  font-size: 7vmax;
+  font-weight: 900;
+  animation: ani-reply 10s linear infinite;
 }
