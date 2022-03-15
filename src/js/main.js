@@ -1,9 +1,9 @@
 import { Word } from "./word.js";
-import { Gallery01 } from "./gallery01/gallery01.js";
-import { Gallery02 } from "./gallery02/gallery02.js";
-import { Gallery03 } from "./gallery03/gallery03.js";
-import { Gallery04 } from "./gallery04/gallery04.js";
-import { Gallery05 } from "./gallery05/gallery05.js";
+import { Gallery01 } from "./content/gallery01.js";
+import { Gallery02 } from "./content/gallery02.js";
+import { Gallery03 } from "./content/gallery03.js";
+import { Gallery04 } from "./content/gallery04.js";
+import { Gallery05 } from "./content/gallery05.js";
 
 class App{
   constructor(){

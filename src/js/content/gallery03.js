@@ -1,4 +1,4 @@
-import { Ball } from './ball.js';
+import { Ball } from '../module/ball.js';
 
 export class Gallery03 {
   constructor(stageWidth, stageHeight) {

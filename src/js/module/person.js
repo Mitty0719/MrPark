@@ -5,7 +5,7 @@ export class Person{
     this.y = 0;
     this.width = personType.width;
     this.height = personType.height;
-    this.speed = 2;
+    this.speed = Math.random() * 3;
     this.direction = 1;
     this.reply = '';
 

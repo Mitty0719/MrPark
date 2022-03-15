@@ -1,4 +1,4 @@
-import { Person } from "./person.js";
+import { Person } from "../module/person.js";
 
 const PERSON_TYPE = [
   {
