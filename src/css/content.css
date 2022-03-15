@@ -639,19 +639,64 @@
   background-repeat: no-repeat;
 }
 
-.contentCon .contentItem5 .replyCon {
+.contentCon .contentItem5 .personCon {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-
-.replyCon .replyItem {
+@keyframes person001-walking-ani {
+  from{ background-position-x: 0px; }
+  to{ background-position-x: -2000px; }
+}
+@keyframes person002-walking-ani {
+  from{ background-position-x: 0px; }
+  to{ background-position-x: -1360px; }
+}
+@keyframes person003-walking-ani {
+  from{ background-position-x: 0px; }
+  to{ background-position-x: -470px; }
+}
+.personCon .person {
   position: absolute;
-  width: 100%;
-  left: 100vw;
-  font-size: 7vmax;
-  font-weight: 900;
-  animation: ani-reply 10s linear infinite;
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.personCon .person001 {
+  width: 250px;
+  height: 460px;
+  background-image: url('../images/person001.png');
+}
+.personCon .person002 {
+  width: 170px;
+  height: 220px;
+  background-image: url('../images/person002.png');
+}
+.personCon .person003 {
+  width: 157px;
+  height: 160px;
+  background-image: url('../images/person003.png');
+}
+.person001.walking {
+  animation: person001-walking-ani infinite 2s steps(8);
+}
+.person002.walking {
+  animation: person002-walking-ani infinite 2s steps(8);
+}
+.person003.walking {
+  animation: person003-walking-ani infinite 0.3s steps(3);
+}
+.person .reply {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  transform: translate(0, -100%);
+  background: #fff;
+  display: none;
+}
+.person .reply.visible{
+  display: initial;
 }
