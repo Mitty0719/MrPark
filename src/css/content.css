@@ -652,11 +652,19 @@
 }
 @keyframes person002-walking-ani {
   from{ background-position-x: 0px; }
-  to{ background-position-x: -1360px; }
+  to{ background-position-x: -2720px; }
 }
 @keyframes person003-walking-ani {
   from{ background-position-x: 0px; }
   to{ background-position-x: -470px; }
+}
+@keyframes person004-walking-ani {
+  from{ background-position-x: 0px; }
+  to{ background-position-x: -7200px; }
+}
+@keyframes person005-walking-ani {
+  from{ background-position-x: 0px; }
+  to{ background-position-x: -312px; }
 }
 .personCon .person {
   position: absolute;
@@ -670,14 +678,29 @@
   background-image: url('../images/person001.png');
 }
 .personCon .person002 {
-  width: 170px;
-  height: 220px;
+  width: 340px;
+  height: 440px;
   background-image: url('../images/person002.png');
 }
 .personCon .person003 {
   width: 157px;
   height: 160px;
   background-image: url('../images/person003.png');
+}
+.personCon .person004 {
+  width: 720px; /*120*/
+  height: 240px; /*40*/
+  background-image: url('../images/person004.png');
+}
+.personCon .person005 {
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/person005.png');
+}
+.personCon .person006 {
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/person006.png');
 }
 .person001.walking {
   animation: person001-walking-ani infinite 2s steps(8);
@@ -688,15 +711,30 @@
 .person003.walking {
   animation: person003-walking-ani infinite 0.3s steps(3);
 }
+.person004.walking {
+  animation: person004-walking-ani infinite 0.3s steps(10);
+}
+.person005.walking, .person006.walking {
+  animation: person005-walking-ani infinite 0.3s steps(13);
+}
 .person .reply {
   position: absolute;
-  right: 0;
+  width: 140px;
+  left: 50%;
   top: 0;
   padding: 15px;
-  transform: translate(0, -100%);
+  transform: translate(-50%, -40%);
+  transition-duration: 1s;
+  text-align: center;
   background: #fff;
-  display: none;
+  border-radius: 5px;
+  border: 3px solid #000;
+  font-family: 'Poor Story', cursive;
+  opacity: 0;
+  /* display: none; */
 }
 .person .reply.visible{
-  display: initial;
+  transform: translate(-50%, -120%);
+  opacity: 1;
+  /* display: initial; */
 }
