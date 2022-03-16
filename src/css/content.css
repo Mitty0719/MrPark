@@ -451,8 +451,47 @@
 }
 
 
-/* ----- content3 ----- 중력 볼, 얼굴 - 클릭하면 추가, 클릭하면 없어짐 */
-.contentCon[data-open-index='3'] .contentItem3 {}
+/* ----- content3 -----  */
+.contentCon[data-open-index='3'] .contentItem3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+}
+
+.keyboardCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+}
+.keyboardRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+.keyboardItem {
+  float: left;
+}
+.keyboardItemPC {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 2px 2px 1px #888;
+  text-align: center;
+  line-height: 80px;
+}
+.keyboardItemPC:hover {
+  box-shadow: inset 2px 2px 1px #888;
+}
+.keyboardItemMobile {
+  padding: 30px;
+}
 
 /* ----- content4 ----- 도넛 먹방 - 인스타 라이브 */
 .contentCon[data-open-index='4'] .contentItem4 {}
