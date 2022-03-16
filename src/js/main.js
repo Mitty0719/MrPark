@@ -12,7 +12,7 @@ class App{
     this.galleryGround = document.querySelector('.galleryGround');
     this.contentCon = document.querySelector('.contentCon');
     this.closeBox = document.querySelector('.closeBox');
-    this.rowStr = ['DancingMachine', 'JukeBox', 'DataEngineer', 'GunMulJu', 'HYUNA', 'ArianaGrande', 'GSP'];
+    this.rowStr = ['DancingMachine', 'WookeBox', 'BlueBlood', 'GunMulJu', 'Bbang', 'TensorFlow', 'GSP'];
     
     this.rowSpace.addEventListener('mouseover', this.moveWords.bind(this));
     this.galleryGround.addEventListener('click', this.showContent.bind(this));

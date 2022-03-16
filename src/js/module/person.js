@@ -77,7 +77,6 @@ export class Person{
   setPosition(stageWidth, stageHeight){
     this.x = -this.width;
     this.y = Math.floor(stageHeight * this.personType.yRatio + (Math.random() * 30));
-    console.log(this.y);
   }
 
   move(){

@@ -29,7 +29,6 @@ export class Gallery05 {
         this.persons.splice(i, 1);
       }
     }
-    console.log(this.persons);
   }
   createPerson(){
     const person = new Person(this.stageWidth, this.stageHeight);
