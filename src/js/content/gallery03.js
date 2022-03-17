@@ -76,9 +76,13 @@ export class Gallery03 {
     }else{
       this.keyboard = KEYBOARD_INFO.mobile;
     }
+    setTimeout(()=>{
+      this.keyboardCon.classList.add('visible');
+    }, 1000);
     this.createKeys();
 
     window.addEventListener('keydown', this.downKey.bind(this));
+    window.addEventListener('click', this.clickKey.bind(this));
   }
 
   createKeys(){
@@ -122,11 +126,24 @@ export class Gallery03 {
       setTimeout(()=>{this.setKeyEffect(keyState, false)} , 2000);
     }
   }
-  upKey(e){
+  upKey(e){ // not use
     const keyState = this.keyState[e.code];
     if(keyState){
       keyState.isDown = false;
     }
+  }
+  clickKey(e){
+    let target = e.target;
+
+    while(!target.classList.contains('keyText')){
+      if(target === document.body){
+        return;
+      }
+      target = target.parentNode;
+    }
+
+    target.style.height = 0;
+    setTimeout(()=>{ target.style.height = '100%' }, 2000);
   }
 
   setKeyEffect(keyState, isDown){

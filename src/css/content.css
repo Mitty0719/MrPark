@@ -453,12 +453,12 @@
 
 /* ----- content3 -----  */
 .contentCon[data-open-index='3'] .contentItem3 {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #333;
 }
-
 .keyboardCon {
   display: flex;
   justify-content: center;
@@ -466,7 +466,18 @@
   flex-direction: column;
   gap: 10px;
   padding: 30px;
+  background: #c0c0c0;
+  border-radius: 20px;
+  animation: keyboardCon-ani 5s alternate forwards;
+  transform: translate(0, 20%);
+  transition-duration: 2s;
+  opacity: 0;
 }
+.keyboardCon.visible {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
 .keyboardRow {
   display: flex;
   justify-content: center;
