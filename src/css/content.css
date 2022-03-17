@@ -466,7 +466,6 @@
   flex-direction: column;
   gap: 10px;
   padding: 30px;
-  background: #c0c0c0;
   border-radius: 20px;
   animation: keyboardCon-ani 5s alternate forwards;
   transform: translate(0, 20%);
@@ -500,7 +499,9 @@
   box-shadow: 2px 2px 5px #888;
 }
 .keyboardItemMobile {
-  padding: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
 }
 .keyText {
   height: 100%;
