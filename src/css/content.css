@@ -476,23 +476,30 @@
 }
 .keyboardItem {
   float: left;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 .keyboardItemPC {
   width: 80px;
   height: 80px;
   border-radius: 5px;
-  background: #fff;
+  background-color: #fff;
   box-shadow: 2px 2px 5px #888;
-  text-align: center;
-  line-height: 80px;
-}
-.keyboardItemPC:hover {
-  box-shadow: inset 4px 4px 5px #888;
 }
 .keyboardItemMobile {
   padding: 30px;
 }
-
+.keyText {
+  height: 100%;
+  text-align: center;
+  line-height: 80px;
+  font-weight: 900;
+  background-color: #fff;
+  transition-duration: 1s;
+  overflow: hidden;
+}
 /* ----- content4 ----- 도넛 먹방 - 인스타 라이브 */
 .contentCon[data-open-index='4'] .contentItem4 {}
 
