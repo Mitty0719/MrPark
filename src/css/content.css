@@ -162,7 +162,7 @@
 .geometryImg {
   
 }
-/* ----- content2 ----- 미끄럼틀 영상 - 유튜브 느낌 */
+/* ----- content2 ----- */
 .contentCon[data-open-index='2'] .contentItem2 {}
 
 .contentCon .contentItem2 {
@@ -170,287 +170,49 @@
   justify-content: center;
   align-items: center;
 }
-
-.contentCon .backImage {
+.journalCon {
+  position: relative;
+}
+.journalText {
   position: absolute;
-  top: -10vh;
-  left: -10vw;
-  width: 120vw;
-  height: 120vh;
-  background-image: url('../images/youtube_background.png');
+  left: 50%;
+  font-family: 'Bebas Neue', cursive;
+  z-index: 10;
+}
+.journalTitle {
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+}
+.journalSquare {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 800px;
+  box-shadow: inset 10px 10px 150px #ddd;
+  background-image: url('../images/journalSquare.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: grayscale(1);
-  z-index: -1;
-}
-
-.contentItem2 .youtubeCon {
-  width: 60vmax;
-  height: 40vmax;
-  border: 1px solid black;
-  overflow: scroll;
-}
-
-.youtubeHeader {
-  width: 100%;
-  height: 3.5vmax;
-  background: white;
-}
-
-.youtubeHeader .youtubeLogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10vmax;
-  height: 100%;
-}
-
-.youtubeHeader .youtubeLogo .logo {
-  width: 66%;
-  height: 44%;
-  background-image: url('../images/youtube_logo.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.youtubeVideo {
-  width: 100%;
-  background: white;
-}
-
-.youtubeVideo hr {
-  width: 95%;
-  margin: 0 0 0 2.5%;
-  border: 1px solid #ddd;
-}
-
-.youtubeVideo .videoCon {
-  width: 100%;
-  height: 30vmax;
-  background: black;
-}
-
-.youtubeVideo .videoCon .video {
-  width: 100%;
-  height: 100%;
-}
-
-.youtubeVideo .info {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.youtubeVideo .info .title {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 5vmax;
-  font-size: calc(1vw + 10px);
-  padding-left: 20px;
-}
-
-.youtubeVideo .info .visited {
-  display: flex;
-  align-items: center;
-  height: 3vmax;
-  padding-left: 20px;
-  font-size: calc(1vw + 6px);
-}
-
-.youtubeVideo .info .likeBox {
-  display: flex;
-  align-items: center;
-  height: 3vmax;
-}
-
-.youtubeVideo .info .likeBox li {
-  display: flex;
-  align-items: center;
-  width: 8.5vmax;
-  max-width: 100px;
-  font-size: calc(0.8vw + 6px);
-}
-
-.youtubeVideo .info .likeBox li img {
-  width: calc(0.8vw + 6px);
-  height: calc(0.8vw + 6px);
-  margin-right: 10px;
-}
-
-.youtubeVideo .channel {
-  display: flex;
-  width: 100%;
-  height: 5vmax;
-}
-
-.youtubeVideo .channel .channelImg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10%;
-  padding-left: 2.5%;
-}
-
-.youtubeVideo .channel .channelImg figure {
-  width: 3.6vmax;
-  height: 3.6vmax;
-  min-width: 30px;
-  min-height: 30px;
-  border-radius: 50%;
-  background-image: url('../images/channelImg.png');
-  background-repeat: no-repeat;
-  background-size: cover;
   overflow: hidden;
 }
-
-.youtubeVideo .channel .channelName {
-  display: flex;
-  align-items: center;
-  width: 75%;
-  padding-left: 10px;
-  font-size: calc(0.8vw + 8px);
-  font-weight: 600;
-}
-
-.youtubeVideo .channel .channelSub {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 15%;
-}
-
-.youtubeVideo .channel .channelSub .subscribeBtn {
-  width: 5.2vw;
-  height: 2.8vw;
-  min-width: 52px;
-  min-height: 28px;
-  border: none;
-  background: crimson;
-  color: white;
-}
-
-.youtubeVideo .channel .channelSub .subscriber {
-  background: #eee;
-  color: #aaa;
-}
-
-.youtubeAnother {
-  display: none;
-}
-
-.youtubeComment {
-  width: 100%;
-  background: white;
-}
-
-.youtubeComment .commentList {
-  width: 95%;
-  margin-left: 2.5%;
-}
-
-.youtubeComment .commentList .commentInput {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 7vmax;
-  min-height: 100px;
-}
-
-.commentList .commentInput .commentText {
-  width: 90%;
-  height: 1.5vmax;
-  font-size: 16px;
-  border: none;
-  border-bottom: 3px solid #ddd;
-  margin-bottom: 1.5vmax;
-}
-
-.commentList .commentInput .inputButtons {
+.journalSquare .journalImage {
   position: absolute;
-  display: flex;
-  right: 0;
-  bottom: 0;
-  gap: 10px;
+  top: 20%;
+  width: 241px; /* 483 */
+  height: 726px; /* 1453 */
+  background-image: url('../images/journalImage.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
-.commentSubmit,
-.commentCancel {
-  width: 4.4vmax;
-  height: 2.2vmax;
-  min-width: 66px;
-  min-height: 33px;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  border-radius: none;
+.journalSubtitle {
+  padding: 45px;
+  transform: translate(-50%);
+  font-size: 1.6rem;
+  color: #333;
 }
-
-.commentSubmit {
-  color: #aaa;
-  background-color: #eee;
-}
-
-.activeSubmit {
-  color: white;
-  background-color: dodgerblue;
-}
-
-.commentCancel {
-  color: #888;
-  background-color: white;
-}
-
-.youtubeComment .commentList .commentItem {
-  display: flex;
-  width: 100%;
-  height: 5vmax;
-  min-height: 60px;
-}
-
-.commentList .commentInput .commentImageCon,
-.commentList .commentItem .commentImageCon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10%;
-  height: 100%;
-}
-
-.commentImageCon img {
-  width: 3.4vmax;
-  height: 3.4vmax;
-}
-
-.commentList .commentItem .commentWordCon {
-  display: flex;
-  justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  width: 90%;
-  height: 100%;
-}
-
-.commentWordCon .nickname {
-  height: 1.7vmax;
-  line-height: 1.7vmax;
-  color: #888;
-}
-
-.commentWordCon .nickname #commnetName {
-  font-weight: 600;
-  color: #000;
-}
-
-.commentWordCon .commentWord {
-  height: 1.7vmax;
-  line-height: 1.7vmax;
-}
-
-
 /* ----- content3 -----  */
 .contentCon[data-open-index='3'] .contentItem3 {
   position: relative;
@@ -487,7 +249,7 @@
 .keyboardItem {
   float: left;
   background-size: contain;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -652,7 +414,7 @@
   height: 100%;
   transform: translateZ(-50px);
   background-image: url('../images/geometry.png');
-  background-position: center center;
+  background-position: center;
   background-size: 100px 100px;
   background-repeat: no-repeat;
 }
@@ -665,7 +427,7 @@
   height: 100%;
   background-image: url('../images/campbells.png');
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
