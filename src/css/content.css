@@ -482,12 +482,12 @@
   height: 80px;
   border-radius: 5px;
   background: #fff;
-  box-shadow: 2px 2px 1px #888;
+  box-shadow: 2px 2px 5px #888;
   text-align: center;
   line-height: 80px;
 }
 .keyboardItemPC:hover {
-  box-shadow: inset 2px 2px 1px #888;
+  box-shadow: inset 4px 4px 5px #888;
 }
 .keyboardItemMobile {
   padding: 30px;
