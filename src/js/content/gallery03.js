@@ -1,3 +1,4 @@
+import { Ball } from '../module/ball.js';
 
 const KEYBOARD_INFO = {
   pc:{
@@ -30,9 +31,16 @@ const KEYBOARD_IMAGES = [
   './images/keyboard009.png',
   './images/keyboard010.png',
 ]
-
+const BALL_CONCEPT = [
+  {vx: 2, vy: 1, radius: 700, color: {r:245, g:209, b:183}},
+  {vx: 2, vy: -2, radius: 700, color: {r:244, g:201, b:107}},
+  {vx: 1, vy: 2, radius: 700, color: {r:233, g:129, b:56}},
+  {vx: 3, vy: 2, radius: 700, color: {r:136, g:133, b:164}},
+  {vx: -1, vy: 2, radius: 700, color: {r:122, g:154, b:130}}
+]
 export class Gallery03 {
-  constructor(stateWidth, stateHeight) {
+  constructor(stageWidth, stageHeight) {
+    this.contentItem = document.querySelector('.contentItem3');
     this.keyboardCon = document.querySelector('.keyboardCon');
     this.keyState = {
       pc:{
@@ -85,21 +93,33 @@ export class Gallery03 {
         Sharp: {isDown: false, state: 0},
       }
     }
+    this.canvas = document.createElement('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.canvas.style.position = 'absolute';
+    this.contentItem.appendChild(this.canvas);
+    this.balls = [];
 
-    this.resize();
+    this.resize(stageWidth, stageHeight);
 
     setTimeout(()=>{
       this.keyboardCon.classList.add('visible');
     }, 1000);
     this.createKeys();
-
+    this.createBall();
 
     window.addEventListener('keydown', this.downKey.bind(this));
     window.addEventListener('click', this.clickKey.bind(this));
+
+    requestAnimationFrame(this.animate.bind(this));
   }
 
-  resize(){
-    if(window.innerWidth > 1200){
+  resize(stageWidth, stageHeight){
+    this.stageWidth = stageWidth;
+    this.stageHeight = stageHeight;
+    this.canvas.width = this.stageWidth;
+    this.canvas.height = this.stageHeight;
+
+    if(this.stageWidth > 1200){
       this.type = 'pc';
       this.keyboard = KEYBOARD_INFO.pc;
     }else{
@@ -182,5 +202,23 @@ export class Gallery03 {
       keyState.isDown = false;
     }
     keyState.keyText.style.height = `${keyState.state}%`;
+  }
+
+  createBall(){
+    for(let i = 0; i < BALL_CONCEPT.length; i++){
+      const concept = BALL_CONCEPT[i];
+
+      this.balls[i] = new Ball(this.stageWidth / 2, this.stageHeight / 2, concept.vx, concept.vy, concept.radius, concept.color);
+    }
+  }
+  animate(){
+    requestAnimationFrame(this.animate.bind(this));
+    this.ctx.globalCompositeOperation = 'saturation';
+
+    this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+    for(let i = 0; i <this.balls.length; i++){
+      this.balls[i].bounceWindow(this.stageWidth, this.stageHeight);
+      this.balls[i].draw(this.ctx);
+    }
   }
 }

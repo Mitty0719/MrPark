@@ -75,7 +75,7 @@
   z-index: 100;
 }
 
-/* ----- content1 ----- 사진 좌우 나눠서 마우스 올리면 다양한 필터 넣어주기 */
+/* ----- content1 ----- */
 .contentCon[data-open-index='1'] .contentItem1 {}
 
 .contentCon .contentItem1 {}
@@ -213,13 +213,13 @@
   font-size: 1.6rem;
   color: #333;
 }
+
 /* ----- content3 -----  */
 .contentCon[data-open-index='3'] .contentItem3 {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #333;
 }
 .keyboardCon {
   display: flex;
@@ -233,6 +233,7 @@
   transform: translate(0, 20%);
   transition-duration: 2s;
   opacity: 0;
+  z-index: 10;
 }
 .keyboardCon.visible {
   transform: translate(0, 0);
