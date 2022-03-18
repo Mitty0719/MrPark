@@ -93,10 +93,9 @@ export class Gallery03 {
         Sharp: {isDown: false, state: 0},
       }
     }
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.querySelector('.keyboardCanvas');
     this.ctx = this.canvas.getContext('2d');
     this.canvas.style.position = 'absolute';
-    this.contentItem.appendChild(this.canvas);
     this.balls = [];
 
     this.resize(stageWidth, stageHeight);
@@ -104,7 +103,6 @@ export class Gallery03 {
     setTimeout(()=>{
       this.keyboardCon.classList.add('visible');
     }, 1000);
-    this.createKeys();
     this.createBall();
 
     this.keyDownHandler = this.downKey.bind(this);
@@ -121,13 +119,22 @@ export class Gallery03 {
     this.stageHeight = stageHeight;
     this.canvas.width = this.stageWidth;
     this.canvas.height = this.stageHeight;
+    this.ctx.scale(1, 1);
 
-    if(this.stageWidth > 1200){
-      this.type = 'pc';
-      this.keyboard = KEYBOARD_INFO.pc;
+    if(this.stageWidth > 1280){
+      if(this.type = 'mobile'){
+        this.type = 'pc';
+        this.keyboard = KEYBOARD_INFO.pc;
+        this.keyboardCon.innerHTML = '';
+        this.createKeys();
+      }
     }else{
-      this.type = 'mobile';
-      this.keyboard = KEYBOARD_INFO.mobile;
+      if(this.type = 'pc'){
+        this.type = 'mobile';
+        this.keyboard = KEYBOARD_INFO.mobile;
+        this.keyboardCon.innerHTML = '';
+        this.createKeys();
+      }
     }
   }
 
@@ -229,5 +236,7 @@ export class Gallery03 {
     cancelAnimationFrame(this.animateId);
     window.removeEventListener('keydown', this.keyDownHandler);
     window.removeEventListener('click', this.clickHandler);
+    this.keyboardCon.innerHTML = '';
+    this.balls = [];
   }
 }

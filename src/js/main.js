@@ -29,6 +29,7 @@ class App {
     this.rowSpace.addEventListener('mouseover', this.moveWords.bind(this));
     this.galleryGround.addEventListener('click', this.showContent.bind(this));
     this.closeBox.addEventListener('click', this.closeContent.bind(this));
+    window.addEventListener('resize', this.resize.bind(this));
 
     this.resize();
     this.setRow();
@@ -36,6 +37,9 @@ class App {
   resize() {
     this.stageWidth = window.innerWidth;
     this.stageHeight = window.innerHeight;
+    if(!this.isHome){
+      this.currentContent.resize(this.stageWidth, this.stageHeight);
+    }
   }
   showContent(e) {
     if(this.isHome){

@@ -13,7 +13,7 @@ export class Gallery02 {
     ];
     this.targetX = 0;
     this.targetY = 0;
-    this.mouseLimit = 5;
+    this.mouseLimit = 20;
     this.mouseMoveHandler = this.moveMouse.bind(this);
 
     this.resize(stageWidth, stageHeight);

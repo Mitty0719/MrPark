@@ -46,5 +46,6 @@ export class Gallery05 {
 
   close(){
     clearInterval(this.intervalId);
+    this.persons = [];
   }
 }
