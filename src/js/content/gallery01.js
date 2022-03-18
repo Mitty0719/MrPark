@@ -9,7 +9,10 @@ export class Gallery01{
     this.geometryItems = [];
     this.resize(stageWidth, stageHeight);
 
-    this.frame.addEventListener('click', this.showGeometryCon.bind(this));
+    this.frameClickHandler = this.showGeometryCon.bind(this)
+    this.geometryClickHandler = this.createGeometryItem.bind(this)
+
+    this.frame.addEventListener('click', this.frameClickHandler);
   }
 
   resize(stageWidth, stageHeight){
@@ -19,13 +22,14 @@ export class Gallery01{
 
   showGeometryCon(){
     this.geometryCon.classList.add('activate');
-    window.addEventListener('click', this.createGeometryItem.bind(this));
+    this.geometryCon.addEventListener('click', this.geometryClickHandler);
   }
 
   createGeometryItem(){
     const item = document.createElement('div');
     const img = document.createElement('img');
-    img.src = './images/geometry.svg';
+    img.src = `./images/geometry.svg?${new Date().getTime()}`;
+    
     let scale, x, y;
 
     if(this.geometryItems.length === 0){
@@ -46,14 +50,11 @@ export class Gallery01{
     this.geometryCon.appendChild(item);
     this.geometryItems.push(item);
   }
-  // moveGeometryCon(e){
-  //   const x = e.clientX - (this.stageWidth / 2);
-  //   const y = e.clientY - (this.stageHeight / 2);
-
-  //   this.geometryItems.forEach((item, index) => {
-  //     const moveX = -(x / 3);
-  //     const moveY = -(y / 3);
-  //     item.style.transform = `scale(${this.geometryScale[index]}) translate(${moveX}px, ${moveY}px)`;
-  //   })
-  // }
+  close(){
+    this.geometryCon.innerHTML = ``;
+    this.geometryCon.classList.remove('activate');
+    this.geometryItems = [];
+    this.frame.removeEventListener('click', this.frameClickHandler);
+    this.geometryCon.removeEventListener('click', this.geometryClickHandler);
+  }
 }

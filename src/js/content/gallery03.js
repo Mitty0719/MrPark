@@ -107,10 +107,13 @@ export class Gallery03 {
     this.createKeys();
     this.createBall();
 
-    window.addEventListener('keydown', this.downKey.bind(this));
-    window.addEventListener('click', this.clickKey.bind(this));
+    this.keyDownHandler = this.downKey.bind(this);
+    this.clickHandler = this.clickKey.bind(this);
 
-    requestAnimationFrame(this.animate.bind(this));
+    window.addEventListener('keydown', this.keyDownHandler);
+    window.addEventListener('click', this.clickHandler);
+
+    this.animateId = requestAnimationFrame(this.animate.bind(this));
   }
 
   resize(stageWidth, stageHeight){
@@ -212,7 +215,7 @@ export class Gallery03 {
     }
   }
   animate(){
-    requestAnimationFrame(this.animate.bind(this));
+    this.animateId = requestAnimationFrame(this.animate.bind(this));
     this.ctx.globalCompositeOperation = 'saturation';
 
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
@@ -220,5 +223,11 @@ export class Gallery03 {
       this.balls[i].bounceWindow(this.stageWidth, this.stageHeight);
       this.balls[i].draw(this.ctx);
     }
+  }
+
+  close(){
+    cancelAnimationFrame(this.animateId);
+    window.removeEventListener('keydown', this.keyDownHandler);
+    window.removeEventListener('click', this.clickHandler);
   }
 }

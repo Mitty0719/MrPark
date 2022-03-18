@@ -11,7 +11,7 @@ export class Gallery05 {
     this.createPerson();
     this.movePerson();
 
-    setInterval(this.checkPerson.bind(this), 3000);
+    this.intervalId = setInterval(this.checkPerson.bind(this), 3000);
   }
   
   resize(stageWidth, stageHeight){
@@ -44,4 +44,7 @@ export class Gallery05 {
     }
   }
 
+  close(){
+    clearInterval(this.intervalId);
+  }
 }

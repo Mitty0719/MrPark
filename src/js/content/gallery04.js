@@ -23,17 +23,20 @@ export class Gallery04 {
 
     this.resize(stageWidth, stageHeight);
 
-    window.addEventListener('mousemove', this.rotateInstaCon.bind(this));
-    this.instaItemCon.addEventListener('mousedown', this.setInstaDragStartPoint.bind(this));
-    this.instaItemCon.addEventListener('mouseup', this.setInstaDragEndPoint.bind(this));
-    this.instaHeart.addEventListener('click', this.changeHeartState.bind(this));
+    this.mouseMoveHandler =  this.rotateInstaCon.bind(this);
+    this.mouseDownHandler = this.setInstaDragStartPoint.bind(this);
+    this.mouseUpHandler = this.setInstaDragEndPoint.bind(this);
+    this.clickHandler = this.changeHeartState.bind(this);
+
+    window.addEventListener('mousemove', this.mouseMoveHandler);
+    this.instaItemCon.addEventListener('mousedown', this.mouseDownHandler);
+    this.instaItemCon.addEventListener('mouseup', this.mouseUpHandler);
+    this.instaHeart.addEventListener('click', this.clickHandler);
   }
 
   resize(stageWidth, stageHeight){
     this.stageWidth = stageWidth;
     this.stageHeight = stageHeight;
-
-    this.rotateInstaConRaf();
   }
 
   rotateInstaCon(e) {
@@ -43,7 +46,7 @@ export class Gallery04 {
   };
 
   rotateInstaConRaf() {
-    window.requestAnimationFrame(this.rotateInstaConRaf.bind(this));
+    this.animateId = window.requestAnimationFrame(this.rotateInstaConRaf.bind(this));
 
     this.currentX += (this.x - this.currentX) * this.speed;
     this.currentY += (this.y - this.currentY) * this.speed;
@@ -109,4 +112,12 @@ export class Gallery04 {
     video.currentTime = 0;
     video.load();
   };
+
+  close(){
+    cancelAnimationFrame(this.animateId);
+    window.removeEventListener('mousemove', this.mouseMoveHandler);
+    this.instaItemCon.removeEventListener('mousedown', this.mouseDownHandler);
+    this.instaItemCon.removeEventListener('mouseup', this.mouseUpHandler);
+    this.instaHeart.removeEventListener('click', this.clickHandler);
+  }
 }

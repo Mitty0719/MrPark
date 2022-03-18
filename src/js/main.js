@@ -24,6 +24,7 @@ class App {
     this.contentCon = document.querySelector('.contentCon');
     this.closeBox = document.querySelector('.closeBox');
     this.rowStr = ['DancingMachine', 'WookeBox', 'BlueBlood', 'GunMulJu', 'Bbang', 'TensorFlow', 'GSP'];
+    this.isHome = true;
 
     this.rowSpace.addEventListener('mouseover', this.moveWords.bind(this));
     this.galleryGround.addEventListener('click', this.showContent.bind(this));
@@ -37,24 +38,32 @@ class App {
     this.stageHeight = window.innerHeight;
   }
   showContent(e) {
-    let elem = e.target;
-    while (!elem.classList.contains('galleryImg')) {
-      if (elem.nodeName == 'BODY') {
-        elem = null;
-        return;
+    if(this.isHome){
+      this.isHome = false;
+
+      let elem = e.target;
+      while (!elem.classList.contains('galleryImg')) {
+        if (elem.nodeName == 'BODY') {
+          elem = null;
+          return;
+        }
+        elem = elem.parentNode;
       }
-      elem = elem.parentNode;
+      this.currentContentIndex = elem.dataset.index;
+  
+      this.contentCon.dataset.state = 'open';
+      this.contentCon.dataset.openIndex = this.currentContentIndex;
+  
+      this.setContent();
     }
-    this.currentContentIndex = elem.dataset.index;
-
-    this.contentCon.dataset.state = 'open';
-    this.contentCon.dataset.openIndex = this.currentContentIndex;
-
-    this.setContent();
   };
   closeContent() {
     this.contentCon.dataset.state = 'close';
-    this.contentCon.dataset.openIndex = 0;
+    setTimeout(()=>{
+      this.contentCon.dataset.openIndex = 0;
+      this.currentContent.close();
+      this.isHome = true;
+    }, 1000);
   };
   setContent() {
     switch (this.currentContentIndex) {
