@@ -18,6 +18,7 @@ import {
 } from "./content/gallery05.js";
 class App {
   constructor() {
+    this.cursor = document.querySelector('.mouseCursor');
     this.rowSpace = document.querySelector('.rowSpace');
     this.rows = document.querySelectorAll('.row');
     this.galleryGround = document.querySelector('.galleryGround');
@@ -30,6 +31,7 @@ class App {
     this.galleryGround.addEventListener('click', this.showContent.bind(this));
     this.closeBox.addEventListener('click', this.closeContent.bind(this));
     window.addEventListener('resize', this.resize.bind(this));
+    window.addEventListener('mousemove', this.moveMouseCursor.bind(this));
 
     this.resize();
     this.setRow();
@@ -40,6 +42,13 @@ class App {
     if(!this.isHome){
       this.currentContent.resize(this.stageWidth, this.stageHeight);
     }
+  }
+  moveMouseCursor(e){
+    const x = e.clientX;
+    const y = e.clientY;
+
+    this.cursor.style.top = `${y}px`;
+    this.cursor.style.left = `${x}px`;
   }
   showContent(e) {
     if(this.isHome){
